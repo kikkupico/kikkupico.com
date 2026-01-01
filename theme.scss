@@ -1,0 +1,77 @@
+/*-- scss:defaults --*/
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;700&display=swap');
+
+// Colors
+$white: #fff;
+$black: #000;
+
+// Base
+$body-bg: $white;
+$body-color: $black;
+$link-color: $black;
+
+// Typography
+$font-family-sans-serif: 'Inter', sans-serif;
+$font-family-serif: 'Lora', serif;
+$font-family-base: $font-family-serif;
+$headings-font-family: $font-family-sans-serif;
+$font-size-base: 1.1rem;
+$line-height-base: 1.7;
+
+// Navbar
+$navbar-bg: $white;
+$navbar-fg: $black;
+$navbar-hl: $black;
+
+/*-- scss:rules --*/
+
+// Links
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Navbar
+.navbar {
+  border-bottom: 1px solid $black;
+}
+
+// Blockquotes
+blockquote {
+  border-left: 2px solid $black;
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+// Code blocks
+pre {
+  border: 1px solid $black;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  th, td {
+    border: 1px solid $black;
+    padding: 0.5rem;
+  }
+}
+
+.quarto-title-block .quarto-title-meta {
+    display: none;
+}

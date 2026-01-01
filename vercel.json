@@ -1,0 +1,13 @@
+{
+  "build": {
+    "env": {
+      "QUARTO_VERSION": "1.4.550"
+    }
+  },
+  "builds": [
+    {
+      "src": "*.qmd",
+      "use": "@vercel/quarto"
+    }
+  ]
+}
