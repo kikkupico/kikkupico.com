@@ -92,6 +92,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-shadow: none !important;
 }
 
+/* Ensure specific title block headers are black */
+#title-block-header,
+#title-block-header .quarto-title-banner,
+#title-block-header .quarto-title,
+#title-block-header .title,
+.quarto-title-block .title,
+h1.title,
+.quarto-title-banner .title,
+.quarto-title-banner h1,
+.quarto-title-banner .quarto-title h1.title {
+  color: #000000 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  font-family: 'Space Mono', monospace !important;
+  font-weight: 700 !important;
+  background-color: transparent !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
 .quarto-category {
   color: #000000 !important;
   border: 1px solid #000000 !important;
