@@ -1,8 +1,0 @@
----
-title: "Hello, World!"
-author: "K-pico"
-date: "2026-01-01"
-categories: [welcome]
----
-
-Welcome to my new blog! This is my first post.

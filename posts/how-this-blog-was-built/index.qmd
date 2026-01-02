@@ -1,0 +1,47 @@
+---
+title: "Code, Curls, and King: The AI-Assisted Birth of a Blog"
+author: "K-pico"
+date: "2026-01-01"
+categories: [meta, tech, story]
+---
+
+## The Origin Story
+
+This blog wasn't built in a high-tech lab or during a caffeine-fueled hackathon. It was born in a much more domestic setting.
+
+I was in the middle of a very delicate operation: detangling my sleeping daughter's hair. As any parent knows, this requires the precision of a bomb disposal expert. To keep my own mind occupied while my hands worked through the knots, I was listening to a Stephen King novel on Audible.
+
+In that quiet chaos, I decided to build this blog. But I didn't type it all out myself. I had help.
+
+## The Tech Stack
+
+This site is a testament to modern AI-assisted development. Here is the stack that powers it:
+
+*   **Quarto**: For turning plain text markdown into this beautiful website.
+*   **Vercel**: For hosting and lightning-fast delivery.
+*   **Jules**: The AI agent that did the heavy lifting (and wrote this post!).
+
+## Behind the Scenes
+
+For those interested in the "meta" details of how this specific post came to be, here are some artifacts from the development process.
+
+### The Pull Requests
+You can trace the history of this blog's development through these pull requests:
+
+*   [Pull Request #1](https://github.com/kikkupico/kikkupico.com/pull/1)
+*   [Pull Request #2](https://github.com/kikkupico/kikkupico.com/pull/2) (Where this post was likely added!)
+
+### The Prompt
+To give you full transparency, here is the exact prompt that generated this very blog post:
+
+> "Replace the 'hello world' blog post with a blog post about how this blog was built.
+>
+> For the content expand on this outline -
+>
+> * The blog itself was built mostly by AI while I was both detangling my kid's hair (she was sleeping) and I was listening to a Stephen King novel on Audible.
+> * -information about tech stack (Quatro, Vercel, Jules etc.) -
+> * - add more interesting info. Maybe, this prompt itself, PR links etc.
+>
+> Give an interesting title and make the posted date 1st Jan 2026."
+
+It's a brave new world where you can detangle hair, listen to horror fiction, and build a website all at the same time. Welcome to 2026.
