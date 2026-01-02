@@ -16,7 +16,9 @@ website:
         href: https://www.linkedin.com/in/ramakrishnan-veeraragavan-725797205/
 format:
   html:
-    theme: litera
+    theme:
+      - cosmo
+      - custom.scss
 
 
 

@@ -1,0 +1,166 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*-- scss:defaults --*/
+
+/* SCSS Variables Overrides */
+$body-bg: #ffffff;
+$body-color: #000000;
+$link-color: #000000;
+$link-decoration: none;
+$link-hover-color: #000000;
+$link-hover-decoration: none;
+
+/* Using serif as base/body font per requirements */
+$font-family-sans-serif: 'Lora', serif;
+$font-family-monospace: 'Space Mono', monospace;
+$headings-font-family: 'Space Mono', monospace;
+
+/* Bootstrap/Quarto Theme Overrides to remove colors */
+$primary: #000000;
+$secondary: #000000;
+$success: #000000;
+$info: #000000;
+$warning: #000000;
+$danger: #000000;
+$light: #ffffff;
+$dark: #000000;
+
+$border-color: #000000;
+$input-border-color: #000000;
+
+/*-- scss:rules --*/
+
+/* Custom CSS */
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Space Mono', monospace;
+  color: #000000;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff !important;
+  border-bottom: 2px solid #000000;
+}
+
+.navbar-brand {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: #000000 !important;
+}
+
+.nav-link {
+  color: #000000 !important;
+  font-family: 'Space Mono', monospace;
+}
+
+/* Listing / Blog Posts */
+.quarto-listing {
+  color: #000000;
+}
+
+.listing-title {
+  color: #000000 !important;
+  font-family: 'Space Mono', monospace;
+}
+
+.listing-author, .listing-date, .listing-categories .listing-category {
+  color: #000000 !important;
+  border-color: #000000 !important;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9em;
+}
+
+/* Metadata in posts */
+.quarto-title-banner {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-bottom: 1px solid #000000;
+}
+
+.quarto-title-banner .quarto-title {
+  color: #000000 !important;
+  text-shadow: none !important;
+}
+
+.quarto-category {
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+  background-color: #ffffff !important;
+  text-transform: uppercase;
+}
+
+.quarto-title-meta-heading {
+  color: #000000 !important;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+}
+
+.quarto-title-meta-contents {
+  color: #000000 !important;
+  font-family: 'Lora', serif;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 0;
+  border: 1px solid #000000;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Code blocks */
+pre, code {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+/* Minimalist spacing */
+p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+img {
+  filter: grayscale(100%);
+}
+
+/* Remove default gray backgrounds from bootstrap elements */
+.bg-light {
+  background-color: #ffffff !important;
+}
+
+.text-muted {
+  color: #000000 !important;
+}
+
+/* Links in body */
+a {
+  color: #000000;
+  text-decoration: none;
+  background-image: linear-gradient(#000000, #000000);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s;
+}
+
+a:hover, a:focus {
+  background-size: 100% 2px;
+  color: #000000;
+}
