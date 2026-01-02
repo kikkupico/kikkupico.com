@@ -5,15 +5,14 @@ project:
 website:
   description: "A blog built with Quarto"
   site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
-  title: "K-pico"
+  title: "kikkupico"
   navbar:
     right:
-      - blog.qmd
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/kikkupico
+      - icon: linkedin
+        href: https://www.linkedin.com/in/ramakrishnan-veeraragavan-725797205/
 format:
   html:
     theme: theme.scss
