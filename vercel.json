@@ -1,14 +1,4 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "*",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "_site",
-        "installCommand": "apt-get update && apt-get install -y wget && wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.550/quarto-1.4.550-linux-amd64.deb && dpkg -i quarto-1.4.550-linux-amd64.deb",
-        "buildCommand": "quarto render"
-      }
-    }
-  ]
+  "buildCommand": "bash build.sh",
+  "outputDirectory": "_site"
 }
