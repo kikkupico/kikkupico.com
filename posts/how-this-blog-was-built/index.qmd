@@ -1,13 +1,13 @@
 ---
 title: "Code, Curls, and King: The AI-Assisted Birth of a Blog"
-author: "K-pico"
+author: "kikkupico"
 date: "2026-01-01"
 categories: [meta, tech, story]
 ---
 
 ## The Origin Story
 
-This blog wasn't built in a high-tech lab or during a caffeine-fueled hackathon. It was born in a much more domestic setting.
+This blog wasn't built during a caffeine-fueled hackathon. It was born in a much more domestic setting.
 
 I was in the middle of a very delicate operation: detangling my sleeping daughter's hair. As any parent knows, this requires the precision of a bomb disposal expert. To keep my own mind occupied while my hands worked through the knots, I was listening to a Stephen King novel on Audible.
 
