@@ -9,7 +9,10 @@ website:
   search: false
   navbar:
     right:
-      - about.qmd
+      - icon: question-circle
+        text: " "
+        href: about.qmd
+        aria-label: About
       - icon: github
         href: https://github.com/kikkupico
       - icon: linkedin
