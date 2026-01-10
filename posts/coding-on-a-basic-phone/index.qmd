@@ -7,7 +7,7 @@ categories: [meta, tech, mobile, ai]
 
 ## Hardware
 
-This post was written on a Redmi Note 9 running Android 12, with 4GB RAM and 64GB storage. The device is several years old and was not designed for development work, but it turns out to be sufficient for running a complete development environment.
+This post was written by Claude Code running on a Redmi Note 9 running Android 12, with 4GB RAM and 64GB storage. The device is several years old and was not designed for development work, but it turns out to be sufficient for running AI agents and code editors.
 
 ## Software Stack
 
@@ -18,6 +18,7 @@ The development environment consists of:
 *   **Node.js v20.x**: JavaScript runtime installed via Termux's package repository. Required for running claude-code and build tools.
 *   **Git 2.x**: Standard version control. Authentication via GitHub personal access tokens or SSH keys.
 *   **Quarto 1.4**: Static site generator for this blog. Runs without modification on ARM64 Android.
+* **neovim**: Editor for making corrections to AI generated content.
 
 ## Setup Process
 
@@ -36,14 +37,14 @@ Claude Code requires an Anthropic API key set in the environment or configured d
 The typical workflow for making changes to this site:
 
 1. Launch Termux and cd to the project directory
-2. Start `claude-code` session
+2. Start `claude` session
 3. Describe the desired changes in natural language
 4. Claude explores the codebase using file reads and searches
 5. Proposes and executes edits to files
 6. Creates git commits with co-authorship attribution
 7. Pushes to GitHub, triggering Vercel deployment
 
-The conversational interface reduces typing overhead significantly. Rather than manually editing files with vim or nano on a touch keyboard, I describe the change and Claude handles the file I/O.
+The conversational interface reduces typing overhead significantly. For refinements and fine-tuning, of course, there's neovim with its vim shortcuts that make editing on a phone keyboard surprisingly easy.
 
 ## Performance Characteristics
 
@@ -52,10 +53,11 @@ On this hardware:
 *   Termux startup: ~2 seconds
 *   Node.js/npm operations: comparable to low-end laptops
 *   Git operations: network-bound, no noticeable performance issues
-*   Quarto builds: ~5-10 seconds for this small site
 *   Claude Code API latency: 1-3 seconds for most operations
 
 The 4GB RAM is adequate. Termux typically uses 200-300MB, Node.js processes add another 100-200MB, and Android system overhead accounts for the rest. No swapping observed during normal development.
+
+For previewing the changes, I just use Vercel's preview deployment which get generated for each PR.
 
 ## Limitations
 
@@ -63,9 +65,7 @@ The setup has some constraints:
 
 *   Touch keyboard is slow for manual typing. The AI-assisted workflow mitigates this.
 *   Small screen (6.53" 1080x2340) makes viewing diffs difficult. Git operations are handled via Claude.
-*   No hardware keyboard support tested.
-*   Battery drain is moderate. Extended sessions require charging.
-*   Some Node packages with native dependencies may not compile on ARM64 Android.
+*   Some Node packages with native dependencies may not compile on ARM64 Android. For example, gemini cli can't be installed, at least on my phone.
 
 ## Implementation Notes
 
