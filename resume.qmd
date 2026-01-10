@@ -1,11 +1,11 @@
 ---
-title: "Resume"
+pagetitle: "Resume of Ramakrishnan Veeraragavan"
 format:
   html:
     page-layout: article
     sidebar: false
     navbar: false
-    css: styles.css
+    css: resume.css
   pdf:
     documentclass: article
     papersize: a4
@@ -15,27 +15,6 @@ format:
       - right=20mm
       - bottom=20mm
 ---
-
-<style>
-  body {
-    background-color: #f5f5f5; /* Light gray background for the "browser" */
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-  }
-  .page-columns {
-    background-color: white;
-    width: 210mm; /* A4 width */
-    min-height: 297mm; /* A4 height */
-    padding: 20mm;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    font-family: serif; /* Match user request for serif body */
-  }
-  h1, h2, h3 {
-    font-family: "Space Mono", monospace; /* Match user request for monospace headings */
-  }
-</style>
 
 # RAMAKRISHNAN VEERARAGAVAN
 Berlin, Germany | +49 15228090180 | kikkupico@gmail.com | [github.com/kikkupico](https://github.com/kikkupico)

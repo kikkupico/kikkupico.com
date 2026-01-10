@@ -1,0 +1,89 @@
+body {
+  background-color: #525659; /* Browser-like background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Hide Quarto header/footer if they sneak in */
+#quarto-header, #quarto-footer, .quarto-secondary-nav {
+  display: none !important;
+}
+
+.page-columns {
+  display: block; /* Override grid */
+  grid-template-columns: 1fr;
+}
+
+main.content {
+  background-color: white;
+  width: 210mm; /* A4 width */
+  min-height: 297mm; /* A4 height */
+  margin: 40px auto;
+  padding: 20mm;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  font-family: "Lora", serif; /* User requested serif body */
+  color: #000;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Space Mono", monospace; /* User requested monospace headings */
+  color: #000;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Specific styling for the Main Name */
+h1 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 2em;
+  border-bottom: none;
+}
+
+/* Contact info line (assumed paragraph immediately after H1) */
+h1 + p {
+  text-align: center;
+  margin-bottom: 2em;
+  font-family: "Space Mono", monospace;
+  font-size: 0.9em;
+}
+
+/* Section headers */
+h2 {
+  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+/* Lists */
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Links */
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Print adjustments */
+@media print {
+  body {
+    background-color: white;
+  }
+  main.content {
+    margin: 0;
+    box-shadow: none;
+    width: 100%;
+  }
+}

@@ -2,28 +2,28 @@
 from playwright.sync_api import sync_playwright
 import os
 
-def verify_resume_page():
+def run():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
-        cwd = os.getcwd()
-        resume_url = f"file://{cwd}/_site/resume.html"
-        about_url = f"file://{cwd}/_site/about.html"
+        # Load the resume html file from the build output
+        # Assuming the build output is in _site/resume.html
+        file_path = os.path.abspath("_site/resume.html")
+        page.goto(f"file://{file_path}")
 
-        # Verify Resume HTML
-        print(f"Navigating to {resume_url}...")
-        page.goto(resume_url)
-        page.screenshot(path="verification/resume_html.png")
-        print("Resume HTML screenshot taken.")
+        # Wait for the page to load
+        page.wait_for_load_state("networkidle")
 
-        # Verify About Page
-        print(f"Navigating to {about_url}...")
-        page.goto(about_url)
-        page.screenshot(path="verification/about_page.png")
-        print("About page screenshot taken.")
+        # Screenshot the whole page to verify layout
+        page.screenshot(path="verification/resume_screenshot.png", full_page=True)
+
+        # Also screenshot the "About" page to check links
+        file_path_about = os.path.abspath("_site/about.html")
+        page.goto(f"file://{file_path_about}")
+        page.screenshot(path="verification/about_screenshot.png")
 
         browser.close()
 
 if __name__ == "__main__":
-    verify_resume_page()
+    run()
