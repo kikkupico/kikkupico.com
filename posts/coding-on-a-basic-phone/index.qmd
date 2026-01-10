@@ -17,7 +17,6 @@ The development environment consists of:
 *   **Claude Code**: Anthropic's CLI tool (claude-code) that provides conversational access to Claude's API. Handles file operations, git commands, and code generation.
 *   **Node.js v20.x**: JavaScript runtime installed via Termux's package repository. Required for running claude-code and build tools.
 *   **Git 2.x**: Standard version control. Authentication via GitHub personal access tokens or SSH keys.
-*   **Quarto 1.4**: Static site generator for this blog. Runs without modification on ARM64 Android.
 * **neovim**: Editor for making corrections to AI generated content.
 
 ## Setup Process
