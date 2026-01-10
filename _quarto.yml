@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - favicon/
 
 website:
   description: "A blog built with Quarto"
@@ -26,10 +28,11 @@ format:
     theme:
       - cosmo
       - custom.scss
-    html-head:
-      - <link rel="icon" href="favicon/favicon.ico" sizes="any">
-      - <link rel="icon" href="favicon/favicon-32x32.png" type="image/png">
-      - <link rel="icon" href="favicon/favicon-16x16.png" type="image/png">
+    include-in-header:
+      - text: |
+          <link rel="icon" href="favicon/favicon.ico" sizes="any">
+          <link rel="icon" href="favicon/favicon-32x32.png" type="image/png">
+          <link rel="icon" href="favicon/favicon-16x16.png" type="image/png">
 
 
 
