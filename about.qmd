@@ -3,5 +3,3 @@ title: "About"
 ---
 
 I am Ram. I like creating things.
-
-[Online Resume](resume.html) | [Download PDF Resume](resume.pdf)
