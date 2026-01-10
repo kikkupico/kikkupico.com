@@ -8,8 +8,16 @@ mkdir -p /tmp/quarto-cli
 tar -xzf /tmp/quarto.tar.gz -C /tmp/quarto-cli --strip-components=1
 export PATH="/tmp/quarto-cli/bin:$PATH"
 
-# Render the Quarto project
+# Install TinyTeX for PDF generation
+echo "Installing TinyTeX..."
+quarto install tinytex --update-path --quiet
+
+# Render the Quarto project (HTML)
 echo "Rendering Quarto project..."
 quarto render
+
+# Render the Resume PDF
+echo "Rendering Resume PDF..."
+quarto render resume.qmd --to pdf
 
 echo "Build complete!"
