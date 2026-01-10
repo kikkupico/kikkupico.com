@@ -1,0 +1,66 @@
+---
+title: "Coding on a Basic Phone: Claude Code in Termux"
+author: "kikkupico"
+date: "2026-01-10"
+categories: [meta, tech, mobile, ai]
+---
+
+## The Setup
+
+This post you're reading right now? It was written on my old, basic Android phone. No laptop. No tablet. Just a phone, Termux, and Claude Code.
+
+If you had told me a year ago that I'd be building and deploying websites from a basic phone, I would have laughed. But here we are in 2026, and it's not just possible—it's surprisingly pleasant.
+
+## The Tech Stack
+
+Here's what makes this magic happen:
+
+*   **Termux**: A terminal emulator for Android that provides a Linux environment. No root required.
+*   **Claude Code**: Anthropic's CLI tool that brings Claude's AI capabilities directly to the command line.
+*   **Node.js**: Running right on the phone via Termux's package manager.
+*   **Git**: For version control and pushing to GitHub.
+*   **Quarto**: The static site generator that powers this blog.
+
+## Why This Matters
+
+There's something liberating about being able to code from anywhere with just a phone. Maybe you're:
+
+*   On a long commute
+*   Away from your main machine
+*   Just want to make a quick fix
+*   Or, like me, you enjoy the novelty of it all
+
+The constraints of a phone—the small screen, the touch keyboard—actually force you to think more carefully about what you're doing. And with Claude Code, you're not typing everything manually. You're collaborating with an AI that can read files, make edits, run commands, and even create entire blog posts (meta, I know).
+
+## The Experience
+
+The workflow is surprisingly smooth:
+
+1. Open Termux
+2. Navigate to your project directory
+3. Run `claude-code`
+4. Have a conversation about what you want to build or change
+5. Claude reads your files, makes edits, runs builds, commits changes
+6. Push to GitHub, auto-deploy via Vercel
+7. Done
+
+The phone's screen real estate is limited, but Claude Code's conversational interface means you don't need to see everything at once. You describe what you want, Claude explores the codebase, proposes changes, and executes them.
+
+## The Meta Moment
+
+This very post was created through a simple request: "add another blog post explaining how the post itself was created on my old, basic phone running claude code in termux."
+
+Claude Code:
+*   Explored the existing blog structure
+*   Looked at the previous post's format and style
+*   Created a new directory
+*   Wrote this post you're reading
+*   Will help commit and push it to GitHub
+
+All from a basic phone.
+
+## Closing Thoughts
+
+We're living in a strange and wonderful time. The tools we use to build things are becoming more accessible, more portable, and more intelligent. You don't need a fancy development machine anymore. You just need curiosity and the right tools.
+
+And sometimes, an old phone is all you need.
