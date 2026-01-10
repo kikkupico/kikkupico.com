@@ -1,10 +1,10 @@
 body {
-  background-color: #525659; /* Browser-like background */
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
+  color: #000;
+  font-family: "Lora", serif; /* User requested serif body */
+  line-height: 1.6;
 }
 
 /* Hide Quarto header/footer if they sneak in */
@@ -14,76 +14,121 @@ body {
 
 .page-columns {
   display: block; /* Override grid */
-  grid-template-columns: 1fr;
 }
 
 main.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
   background-color: white;
-  width: 210mm; /* A4 width */
-  min-height: 297mm; /* A4 height */
-  margin: 40px auto;
-  padding: 20mm;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  font-family: "Lora", serif; /* User requested serif body */
-  color: #000;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Space Mono", monospace; /* User requested monospace headings */
   color: #000;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  line-height: 1.2;
 }
 
 /* Specific styling for the Main Name */
 h1 {
   text-align: center;
-  margin-top: 0;
-  font-size: 2em;
+  margin-top: 10px;
+  font-size: 2.2em;
   border-bottom: none;
+  font-weight: 700;
 }
 
 /* Contact info line (assumed paragraph immediately after H1) */
 h1 + p {
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   font-family: "Space Mono", monospace;
   font-size: 0.9em;
+  color: #333;
 }
 
 /* Section headers */
 h2 {
-  border-bottom: 1px solid #000;
-  padding-bottom: 5px;
-  font-size: 1.2em;
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+  font-size: 1.4em;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+/* Sub-headers (Job titles etc) */
+h3 {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+/* Work experience company line */
+h3 + p {
+  margin-top: 0;
+  font-style: italic;
+  color: #444;
 }
 
 /* Lists */
 ul {
   padding-left: 20px;
+  margin-top: 0.5em;
 }
 
 li {
   margin-bottom: 0.5em;
 }
 
+strong {
+  font-weight: 700;
+}
+
 /* Links */
 a {
   color: #000;
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* Print adjustments */
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  main.content {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h1 + p {
+    font-size: 0.8em;
+    line-height: 1.4;
+  }
+}
+
+/* Print adjustments - keep it clean for actual printing */
 @media print {
   body {
     background-color: white;
   }
   main.content {
-    margin: 0;
-    box-shadow: none;
     width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  h1 + p {
+    margin-bottom: 1em;
   }
 }

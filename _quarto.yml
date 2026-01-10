@@ -13,6 +13,10 @@ website:
         text: " "
         href: about.qmd
         aria-label: About
+      - icon: file-text
+        text: " "
+        href: resume.qmd
+        aria-label: Resume
       - icon: github
         href: https://github.com/kikkupico
       - icon: linkedin
