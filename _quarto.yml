@@ -26,6 +26,10 @@ format:
     theme:
       - cosmo
       - custom.scss
+    html-head:
+      - <link rel="icon" href="favicon/favicon.ico" sizes="any">
+      - <link rel="icon" href="favicon/favicon-32x32.png" type="image/png">
+      - <link rel="icon" href="favicon/favicon-16x16.png" type="image/png">
 
 
 
