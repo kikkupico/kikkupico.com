@@ -70,6 +70,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .listing-title {
   color: #000000 !important;
   font-family: 'Space Mono', monospace;
+  font-weight: 700;
+}
+
+.listing-title a {
+  font-weight: inherit;
+  color: inherit;
 }
 
 .listing-author, .listing-date, .listing-categories .listing-category {
@@ -77,6 +83,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   border-color: #000000 !important;
   font-family: 'Space Mono', monospace;
   font-size: 0.9em;
+}
+
+.listing-categories {
+  margin-top: 0.5rem;
 }
 
 /* Sidebar Categories */
