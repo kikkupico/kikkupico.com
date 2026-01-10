@@ -1,0 +1,105 @@
+---
+title: "Resume"
+format:
+  html:
+    page-layout: article
+    sidebar: false
+    navbar: false
+    css: styles.css
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry:
+      - top=20mm
+      - left=20mm
+      - right=20mm
+      - bottom=20mm
+---
+
+<style>
+  body {
+    background-color: #f5f5f5; /* Light gray background for the "browser" */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .page-columns {
+    background-color: white;
+    width: 210mm; /* A4 width */
+    min-height: 297mm; /* A4 height */
+    padding: 20mm;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    font-family: serif; /* Match user request for serif body */
+  }
+  h1, h2, h3 {
+    font-family: "Space Mono", monospace; /* Match user request for monospace headings */
+  }
+</style>
+
+# RAMAKRISHNAN VEERARAGAVAN
+Berlin, Germany | +49 15228090180 | kikkupico@gmail.com | [github.com/kikkupico](https://github.com/kikkupico)
+
+**Senior Full-Stack Engineer & Former Founder**
+
+Senior Software Engineer with over 11 years of development experience and 6 years of entrepreneurial leadership. Specialist in the JavaScript ecosystem (React/Node) and Python, with a deep passion for Functional Programming (Haskell/Clojure). Proven track record of driving revenue ($200k+), scaling applications to 40k+ concurrent users, and building developer tooling that improves team efficiency.
+
+## TECHNICAL SKILLS
+
+* **Languages:** JavaScript (ES6+), TypeScript, Python, Haskell, Clojure, Java, SQL.
+* **Frontend:** React, Redux, Svelte, Tailwind CSS, D3.js, Three.js, WebSockets.
+* **Backend:** Node.js, Express, Python (Flask), Sails.js, GraphQL (Hasura).
+* **Infrastructure & Tools:** Docker, Kubernetes, Kafka, Postgres, MongoDB, Git, Raspberry Pi.
+
+## WORK EXPERIENCE
+
+### **Senior Software Engineer**
+**Delivery Hero** | Berlin, Germany
+*Oct 2022 - Present*
+
+* **Performance Optimization:** Engineered significant frontend performance gains by implementing route isolation, advanced image optimization, and error boundaries.
+* **Observability:** Architected custom Grafana metrics dashboards, enabling proactive monitoring of application health and reducing resolution time for production incidents.
+* **Developer Experience:** Overhauled the local development environment and refactored complex legacy components, reducing developer friction and build times.
+* **Strategic Documentation:** Authored critical technical documentation and architectural one-pagers (including Authentication systems and AQS scoring) to align cross-functional teams on strategic initiatives.
+
+### **Senior Frontend Engineer**
+**Hasura** | Remote / Bangalore
+*Aug 2021 - Sep 2022*
+
+* **Load Performance:** Analyzed the core codebase and implemented aggressive code-splitting, improving application load performance by **over 50%** within the first week of tenure.
+* **Tooling Innovation:** Built a custom PR review application using Svelte to streamline the GitHub review flow; successfully adopted for internal use to accelerate code merge cycles.
+* **Code Quality:** Initiated and led a cross-functional quality drive, successfully migrating the codebase to **Tailwind CSS and Immer**, resulting in cleaner, more maintainable state management.
+
+### **Tech Lead**
+**Tech Mahindra** | Chennai, India
+*Feb 2016 - Jul 2021*
+
+* **Revenue Generation:** Designed and built a scalable network simulation product supporting **40,000 concurrent users**, generating **$200k+ in direct revenue**.
+* **Architecture Modernization:** Architected the transition of a mission-critical legacy monolith to a microservices architecture (Docker, Kafka, Flask), securing increased investment from the client.
+* **Client Retention:** Secured a 3-quarter project extension by proactively proposing and building a value-add web-based test design application (React, Node.js).
+* **Team Leadership:** Doubled team productivity by building a custom Chrome extension for internal tooling and developing an automated task-tracking system using Clojure and D3.
+
+### **Managing Director**
+**Vira Builders** | Chennai, India
+*Oct 2009 - Feb 2016*
+
+* **Executive Leadership:** Founded and scaled a construction and manufacturing business, managing end-to-end operations including P&L responsibility and supply chain logistics.
+* **Operations:** Led a diverse workforce, honing leadership skills in resource allocation, project scheduling, and crisis management.
+
+### **Applications Engineer / Team Lead**
+**Oracle** | Chennai, India
+*Nov 2006 - Oct 2009*
+
+* **Rapid Promotion:** Promoted to Team Lead for a 6-member squad within 3 years (uncommon for early-career associates).
+* **Delivery:** Developed Form-ST3 (largest tax form in the ERP suite) using C++, delivering the project weeks ahead of schedule by implementing Agile methodologies early.
+
+## KEY PERSONAL PROJECTS
+
+* **Aspy (Compiler/Language):** Designed a pattern-oriented programming language inspired by Haskell and Python. Demonstrates deep understanding of parsing and language design.
+* **Rapid (No-Code Generator):** Created a drag-and-drop editor that transpiles visual layouts into production-ready React/Redux code.
+* **Chunkable (IDE):** Developed a web-based IDE enabling "bottom-up" programming using React, Esprima (AST parser), and the Monaco editor.
+
+## EDUCATION
+
+**B.E, Computer Science Engineering**
+*Crescent Engineering College (Anna University)* | 2002 - 2006
