@@ -3,7 +3,10 @@ title: "Code, Curls, and King: The AI-Assisted Birth of a Blog"
 author: "kikkupico"
 date: "2026-01-01"
 categories: [meta, tech, story]
+image: "https://storage.googleapis.com/kikkupico-com-storage/code-curls-and-king/code-curls-and-king-illustration.webp"
 ---
+
+![Code, Curls, and King Illustration](https://storage.googleapis.com/kikkupico-com-storage/code-curls-and-king/code-curls-and-king-illustration.webp)
 
 ## The Origin Story
 

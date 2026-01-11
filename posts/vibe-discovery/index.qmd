@@ -1,0 +1,335 @@
+---
+title: "Vibe Discovery: I Built a Mobile Game on an Old Phone Without Knowing What I Was Building"
+author: "kikkupico"
+date: "2026-01-11"
+categories: [ai, product-development, gamedev, webgl]
+image: "https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/hero.webp"
+---
+
+## The Starting Point
+
+"Create a web-based game that leverages the accelerometer creatively."
+
+That was the entire spec. No wireframes, no design doc, no feature list. I typed this into Claude Code running on my Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Three hours later, I had [Inertia](https://kikkupico.github.io/inertia/) - a WebGL marble game with procedural terrain and dynamic camera. The interesting part isn't the game itself. It's that I didn't know I was building a marble game until iteration 4.
+
+![Inertia gameplay showing the ring-sphere player navigating 3D terrain](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/inertia.webp)
+
+## This Isn't Vibe Coding
+
+"Vibe coding" typically means: you know what you want to build, you just let AI handle the implementation details. You have a mental image of the end product - maybe a todo app, a chat interface, a dashboard - and you describe it loosely while the AI figures out the code.
+
+What I'm describing is different. I'll call it **Vibe Discovery**: you don't know what you're building. The *requirements themselves* are undefined. You're not just discovering implementation - you're discovering what the product should be.
+
+The distinction matters:
+
+| Vibe Coding | Vibe Discovery |
+|-------------|----------------|
+| "Build me a todo app with drag-and-drop" | "Build me something fun with the accelerometer" |
+| Requirements known, implementation fuzzy | Requirements unknown, discovered through building |
+| AI translates intent to code | AI proposes, human reacts, product emerges |
+| End state imagined upfront | End state discovered through iteration |
+
+In Vibe Discovery, you're not directing - you're *reacting*. Each prototype teaches you what you actually want.
+
+## The Setup
+
+![Termux running Claude Code on a phone screen](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/claude.webp)
+
+The whole thing ran on a Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Termux for the terminal, Claude Code for the AI, Node.js http-server for testing, GitHub for deployment. The phone isn't the point. The point is that the entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Vibe Discovery work.
+
+## Six Iterations, Six Discoveries
+
+Here's how requirements emerged from nothing:
+
+::: {.columns}
+
+::: {.column width="50%"}
+**Iteration 1**: "Accelerometer game, surprise me"
+→ Claude builds particle art tool with tilt-controlled gravity
+→ I try it: "Okay-ish. Not really a game though."
+→ **Discovered**: I want gameplay, not just visuals
+:::
+
+::: {.column width="50%"}
+![Cosmic Painter](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/cosmic-painter.webp){fig-align="center"}
+:::
+
+:::
+
+::: {.columns}
+
+::: {.column width="50%"}
+**Iteration 2**: "Something more fun"
+→ Endless runner with tilt controls
+→ "Better! But I want something more complex"
+→ **Discovered**: I like objectives, want more depth
+:::
+
+::: {.column width="50%"}
+![Tilt Runner](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/tilt-runner.webp){fig-align="center"}
+:::
+
+:::
+
+::: {.columns}
+
+::: {.column width="50%"}
+**Iteration 3**: "More complicated, different art style"
+→ Isometric puzzle game with physics
+→ "Love the physics, but the tilt controls are confusing"
+→ **Discovered**: Good mechanics can't overcome bad feedback
+:::
+
+::: {.column width="50%"}
+![Sky Garden](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/sky-garden.webp){fig-align="center"}
+:::
+
+:::
+
+::: {.columns}
+
+::: {.column width="50%"}
+**Iteration 4**: "Keep the physics, make controls intuitive"
+→ Sandbox with tilt indicator
+→ "The indicator works but the perspective is wrong"
+→ **Discovered**: I want a marble game with 3rd-person view
+:::
+
+::: {.column width="50%"}
+![Marble Sandbox](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/marble-sandbox.webp){fig-align="center"}
+:::
+
+:::
+
+::: {.columns}
+
+::: {.column width="50%"}
+**Iteration 5**: "3rd person marble game"
+→ Marble game with calibration system
+→ "Close! Controls are too sensitive, movement feels sticky"
+→ **Discovered**: Fine-tuning matters more than features
+:::
+
+::: {.column width="50%"}
+![Marble Chase](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/marble-chase.webp){fig-align="center"}
+:::
+
+:::
+
+::: {.columns}
+
+::: {.column width="50%"}
+**Iteration 6**: "Make it beautiful, show acceleration visually"
+→ Wireframe game with procedural terrain
+→ "Terrain looks flat, camera should follow like driving"
+→ **Discovered**: Need WebGL for proper 3D, dynamic camera sells the experience
+:::
+
+::: {.column width="50%"}
+![Final Inertia game](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/inertia.webp){fig-align="center"}
+:::
+
+:::
+
+Notice what happened: the final product (WebGL marble game with ring-sphere player and dynamic camera) wasn't anywhere in my head at the start. Each feature emerged from reacting to the previous prototype. "The terrain looks flat" led to WebGL. "Can't tell which way I'm accelerating" led to the ring-sphere design. "Camera feels static" led to the dynamic look-ahead system.
+
+I didn't design the product. I *discovered* it.
+
+## Why This Works
+
+The feedback loop is fast enough that you can think by building:
+
+1. Describe what's wrong (takes 5 seconds)
+2. Claude implements a fix (takes 30-60 seconds)
+3. Test it (takes 10 seconds)
+4. React to the result
+5. Repeat
+
+Traditional development has too much friction for this. By the time you've written a spec, assigned the work, reviewed the PR, and deployed, you've forgotten what you were reacting to. Vibe Discovery keeps the reaction immediate.
+
+It also works because AI can interpret vague feedback. "Make it more fun" isn't actionable for a human developer without a long conversation about what "fun" means. But Claude can just try something - add obstacles, change mechanics, adjust physics - and I can react to the result. The conversation happens through prototypes, not words.
+
+## The Interesting Implication
+
+```{dot}
+digraph VibeDiscoveryImplication {
+    // Graph settings
+    rankdir=TB;
+    bgcolor="#ffffff";
+    fontname="Arial";
+    pad=0.5;
+    nodesep=0.6;
+    ranksep=0.8;
+
+    // Node defaults
+    node [fontname="Arial", fontsize=18, style="filled,rounded", shape=box];
+    edge [fontname="Arial", fontsize=18, color="#888888"];
+
+    // Title
+    label=<<font color="#1a1a2e" point-size="24"><b>From Human Bottleneck to Autonomous Loop</b></font>>;
+    labelloc="t";
+
+    // ===== THE CORE LOOP =====
+    subgraph cluster_loop {
+        label=<<font color="#555555" point-size="18">The Vibe Discovery Loop</font>>;
+        style="dashed";
+        color="#aaaacc";
+
+        generate [label="Generate\n(AI Codes)", fillcolor="#4a90d9", fontcolor="white"];
+        deploy [label="Deploy\n(Systems Ship)", fillcolor="#4a90d9", fontcolor="white"];
+        test [label="Test\n(Run Product)", fillcolor="#4a90d9", fontcolor="white"];
+        analyze [label="Analyze\nFeedback", fillcolor="#4a90d9", fontcolor="white"];
+        iterate [label="Iterate\n(Improve)", fillcolor="#4a90d9", fontcolor="white"];
+
+        generate -> deploy -> test -> analyze -> iterate;
+        iterate -> generate [constraint=false, style="dashed"];
+    }
+
+    // ===== CURRENT STATE: HUMAN BOTTLENECK =====
+    subgraph cluster_current {
+        label=<<font color="#cc5533" point-size="18">CURRENT STATE</font>>;
+        style="filled";
+        fillcolor="#fff5f0";
+        color="#cc5533";
+
+        human [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>👤 Human in Loop</b></td></tr>
+            <tr><td><font point-size="18" color="#666666">THE BOTTLENECK</font></td></tr>
+        </table>>, fillcolor="#e85555", fontcolor="white", shape=ellipse];
+
+        subgraph cluster_human_feedback {
+            label="";
+            style="invis";
+
+            taste [label="Taste &\nJudgment", fillcolor="#ffcc99", fontcolor="#333333", shape=note];
+            mechanical [label="Mechanical\nFeedback", fillcolor="#ffe6cc", fontcolor="#333333", shape=note];
+        }
+
+        human -> taste [dir=none, style="dotted", color="#cc7744"];
+        human -> mechanical [dir=none, style="dotted", color="#cc9966"];
+    }
+
+    // ===== FUTURE: AUTOMATED SOURCES =====
+    subgraph cluster_future {
+        label=<<font color="#228855" point-size="18">POTENTIAL FUTURE</font>>;
+        style="filled";
+        fillcolor="#f0fff5";
+        color="#228855";
+
+        // Automated feedback sources
+        automated [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>🤖 Automated Sources</b></td></tr>
+            <tr><td><font point-size="18" color="#666666">NO HUMAN REQUIRED</font></td></tr>
+        </table>>, fillcolor="#33aa77", fontcolor="white", shape=ellipse];
+
+        testing [label="Automated Testing\n\"users drop off\nafter 30 seconds\"", fillcolor="#b3e6cc", fontcolor="#1a1a2e", shape=note];
+        analytics [label="Analytics\n\"no one uses\nfeature X\"", fillcolor="#b3e6cc", fontcolor="#1a1a2e", shape=note];
+        simulated [label="Simulated Users\n\"agent reports\nconfusion at step 3\"", fillcolor="#b3e6cc", fontcolor="#1a1a2e", shape=note];
+
+        automated -> testing [dir=none, style="dotted", color="#33aa77"];
+        automated -> analytics [dir=none, style="dotted", color="#33aa77"];
+        automated -> simulated [dir=none, style="dotted", color="#33aa77"];
+    }
+
+    // ===== MISSING PIECE =====
+    orchestration [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>❓ Orchestration Layer</b></td></tr>
+        <tr><td><font point-size="18" color="#ffdddd">THE MISSING PIECE</font></td></tr>
+        <tr><td><font point-size="18" color="#dddddd">Ties everything together</font></td></tr>
+    </table>>, fillcolor="#7755bb", fontcolor="white", shape=hexagon, style="filled,bold"];
+
+    // ===== CONNECTIONS =====
+    // Human currently feeds the loop
+    human -> analyze [label="  provides\n  feedback", color="#cc5533", fontcolor="#cc5533", penwidth=2];
+
+    // Automated could feed the loop
+    automated -> analyze [label="  could\n  provide", color="#228855", fontcolor="#228855", style="dashed", penwidth=2];
+
+    // Orchestration connects automated to loop
+    orchestration -> automated [style="dashed", color="#9977dd", penwidth=1.5];
+    orchestration -> generate [style="dashed", color="#9977dd", penwidth=1.5];
+    orchestration -> deploy [style="dashed", color="#9977dd", penwidth=1.5];
+
+    // ===== LEGEND =====
+    subgraph cluster_legend {
+        label=<<font color="#555555" point-size="18">Legend</font>>;
+        style="filled";
+        fillcolor="#f8f8fc";
+        color="#ccccdd";
+
+        node [shape=plaintext, fillcolor="#f8f8fc"];
+
+        legend [label=<<table border="0" cellborder="0" cellspacing="4">
+            <tr><td bgcolor="#4a90d9" width="20"> </td><td align="left"><font color="#333333"> Exists today (AI, Deploy, Test)</font></td></tr>
+            <tr><td bgcolor="#e85555" width="20"> </td><td align="left"><font color="#333333"> Current bottleneck</font></td></tr>
+            <tr><td bgcolor="#33aa77" width="20"> </td><td align="left"><font color="#333333"> Potential automated sources</font></td></tr>
+            <tr><td bgcolor="#7755bb" width="20"> </td><td align="left"><font color="#333333"> Missing orchestration</font></td></tr>
+        </table>>];
+    }
+
+    // ===== KEY INSIGHT BOX =====
+    insight [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font point-size="18" color="#333333"><b>💡 Key Insight</b></font></td></tr>
+        <tr><td><font point-size="18" color="#444444">The pieces exist. The workflow doesn't</font></td></tr>
+        <tr><td><font point-size="18" color="#444444">inherently require a human at every step.</font></td></tr>
+        <tr><td><font point-size="18" color="#666666">Much feedback is mechanical:</font></td></tr>
+        <tr><td><font point-size="18" color="#666666">"broken", "slow", "unresponsive"</font></td></tr>
+    </table>>, shape=box, style="filled,rounded", fillcolor="#e8f4fc", color="#88aacc"];
+
+    // Position insight
+    {rank=sink; legend;}
+}
+
+```
+
+Right now, Vibe Discovery needs a human in the loop. Someone has to play the game and say "this feels sticky" or "the camera is weird." That's the bottleneck.
+
+But that feedback could come from other sources:
+- Automated testing ("users drop off after 30 seconds")
+- Analytics ("no one uses feature X")
+- Simulated users ("agent reports confusion at step 3")
+
+The pieces exist: AI that codes, systems that deploy, tools that measure. What's missing is the orchestration layer that ties them together.
+
+I'm not making predictions about when or whether this happens. I'm just noting that the workflow I ran manually - generate, test, analyze feedback, iterate - doesn't inherently require a human at every step. The human provided taste and judgment, but a lot of that feedback was mechanical: "this is broken," "this is slow," "this doesn't respond to input."
+
+## Technical Notes
+
+The final game uses:
+- WebGL 1.0 with custom shaders
+- Device Orientation API with calibration
+- Procedural terrain from layered sine waves
+- Dynamic camera (height and distance scale with speed)
+
+Deployment was `gh repo create` + GitHub Pages API. Under a minute from local to production.
+
+The repository includes all six iterations as separate HTML files, so you can see the evolution.
+
+## Try It
+
+**Play**: [https://kikkupico.github.io/inertia/](https://kikkupico.github.io/inertia/)
+
+**Code**: [https://github.com/kikkupico/inertia](https://github.com/kikkupico/inertia)
+
+**Replicate**:
+```bash
+# On any Android phone with Termux
+pkg install nodejs git
+npm install -g @anthropic-ai/claude-code
+claude
+# Start with a vague idea. See what emerges.
+```
+
+## The Meta
+
+This post went through the same process. First draft focused on technical details. Feedback: "emphasize the methodology, not the game." Second draft was repetitive. Feedback: "tighten it up, explain how it differs from vibe coding." Third draft landed here.
+
+I didn't outline the post. I discovered its structure by writing drafts and reacting to them.
+
+![Editing this post in Termux](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/editing-blog-post.webp)
+
+---
+
+Everything here - game, deployment, blog post - was built on a Redmi Note 9 in Termux through conversation with Claude. The phone is incidental. The process is the point: when iteration is fast enough, you can build things you couldn't have specified upfront.
+
+Vibe Discovery isn't about AI writing code faster. It's about finding out what you want by seeing what you don't want, one prototype at a time.
