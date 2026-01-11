@@ -1,325 +1,162 @@
 ---
-title: "Exploratory Development: Discovering Products Through AI-Assisted Iteration"
+title: "Discovery Mode: Building Products When You Don't Know What You're Building"
 author: "kikkupico"
 date: "2026-01-11"
-categories: [ai, product-development, automation, gamedev, webgl]
+categories: [ai, product-development, gamedev, webgl]
 image: "hero.png"
 ---
 
-## The Experiment
+## The Starting Point
 
-I started with a vague idea: "Create a web-based game that leverages the accelerometer creatively."
+"Create a web-based game that leverages the accelerometer creatively."
 
-No wireframes. No design doc. No technical specifications. Just a single sentence and an AI assistant running on a 4-year-old phone.
-
-Three hours later, I had [Inertia](https://kikkupico.github.io/inertia/) - a polished WebGL game with procedural terrain, dynamic camera systems, and intuitive tilt controls. But more importantly, I had validated a development methodology that could fundamentally change how we build software.
-
-This is about **exploratory development** - discovering products through rapid iteration and experimentation rather than upfront planning. And it's a glimpse into a future where autonomous agents could generate, test, and refine products with minimal human intervention.
+That was the entire spec. No wireframes, no design doc, no feature list. Three hours later, I had [Inertia](https://kikkupico.github.io/inertia/) - a WebGL marble game with procedural terrain and dynamic camera. The interesting part isn't the game itself. It's that I didn't know I was building a marble game until iteration 4.
 
 ![Inertia gameplay showing the ring-sphere player navigating 3D terrain](hero.png)
 
-## The Development Environment
+## This Isn't Vibe Coding
+
+"Vibe coding" typically means: you know what you want to build, you just let AI handle the implementation details. You have a mental image of the end product - maybe a todo app, a chat interface, a dashboard - and you describe it loosely while the AI figures out the code.
+
+What I'm describing is different. I'll call it **Discovery Mode**: you don't know what you're building. The *requirements themselves* are undefined. You're not just discovering implementation - you're discovering what the product should be.
+
+The distinction matters:
+
+| Vibe Coding | Discovery Mode |
+|-------------|----------------|
+| "Build me a todo app with drag-and-drop" | "Build me something fun with the accelerometer" |
+| Requirements known, implementation fuzzy | Requirements unknown, discovered through building |
+| AI translates intent to code | AI proposes, human reacts, product emerges |
+| End state imagined upfront | End state discovered through iteration |
+
+In Discovery Mode, you're not directing - you're *reacting*. Each prototype teaches you what you actually want.
+
+## The Setup
 
 ![Termux running Claude Code on a phone screen](termux-setup.png)
 
-The entire experiment ran on:
-
-- **Hardware**: Redmi Note 9 (Android 12, 4GB RAM) - a $150 phone from 2020
-- **Terminal**: Termux 0.118.1 - Linux environment on Android
-- **AI Assistant**: Claude Code (Sonnet 4.5) - conversational development interface
-- **Local Server**: Node.js http-server for instant testing on the same device
-- **Version Control**: Git + GitHub CLI for deployment
+The whole thing ran on a Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Termux for the terminal, Claude Code for the AI, Node.js http-server for testing, GitHub for deployment.
 
 ![Claude Code terminal interface showing the development session](claude-interface.png)
 
-No laptop. No desktop. No external keyboard. Just a phone, natural language, and an AI that writes code.
+The phone isn't the point. The point is that the entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Discovery Mode work.
 
-The significance isn't the hardware constraints - it's what this enables: **a complete feedback loop in one device**. I could describe what I wanted, Claude would build it, I'd test it instantly by opening a browser tab, provide feedback, and iterate. All within seconds, all on a touchscreen.
+## Six Iterations, Six Discoveries
 
-## Exploratory Development in Action
+Here's how requirements emerged from nothing:
 
-This is where it gets interesting. I didn't know what the final product would be. I just knew I wanted something "fun" that used the accelerometer "creatively."
-
-The development followed a pattern:
-
-1. **Vague feedback** ("this is okay-ish, can we build something more fun?")
-2. **AI interprets and builds** (creates a new prototype)
-3. **Instant testing** (I tilt my phone and see what happens)
-4. **Specific feedback emerges** ("the controls are unintuitive", "forward/backward is flipped")
-5. **Refinement** (AI fixes the issues)
-6. **Repeat**
-
-Each iteration wasn't planned - it **emerged** from the previous one's feedback. The product discovered itself through experimentation.
-
-### The Evolution: From Vague to Specific
-
-**Iteration 1**: "Create a web game that leverages accelerometer creatively"
+**Iteration 1**: "Accelerometer game, surprise me"
 → Claude builds particle art tool with tilt-controlled gravity
-→ **My feedback**: "Okay-ish, can we build something more fun?"
-→ **Discovery**: Need actual gameplay, not just visual effects
+→ I try it: "Okay-ish. Not really a game though."
+→ **Discovered**: I want gameplay, not just visuals
 
-![Cosmic Painter - particle art with tilt-based gravity](cosmic-painter.png)
+![Cosmic Painter](cosmic-painter.png)
 
-**Iteration 2**: "Something more fun to play"
-→ Claude builds endless runner with tilt controls
-→ **My feedback**: "Much better, but I want something more complicated with a different art style"
-→ **Discovery**: I like gameplay with objectives, want visual variety
+**Iteration 2**: "Something more fun"
+→ Endless runner with tilt controls
+→ "Better! But I want something more complex"
+→ **Discovered**: I like objectives, want more depth
 
-![Tilt Runner - endless runner with obstacles](tilt-runner.png)
+![Tilt Runner](tilt-runner.png)
 
 **Iteration 3**: "More complicated, different art style"
-→ Claude builds isometric puzzle game with physics
-→ **My feedback**: "Love the isometrics and physics, but hard to understand how tilt affects the environment"
-→ **Discovery**: Good mechanics, bad control feedback
+→ Isometric puzzle game with physics
+→ "Love the physics, but the tilt controls are confusing"
+→ **Discovered**: Good mechanics can't overcome bad feedback
 
-![Sky Garden - isometric puzzle with physics](sky-garden.png)
+![Sky Garden](sky-garden.png)
 
-**Iteration 4**: "Keep isometrics/physics, make controls more intuitive"
-→ Claude builds sandbox with tilt indicator
-→ **My feedback**: "Tilt indicator moves but the marble doesn't... forward/backward is flipped"
-→ **Discovery**: Technical bugs, perspective isn't helping spatial understanding
+**Iteration 4**: "Keep the physics, make controls intuitive"
+→ Sandbox with tilt indicator
+→ "The indicator works but the perspective is wrong"
+→ **Discovered**: I want a marble game with 3rd-person view
 
-![Marble Sandbox - isometric sandbox with tilt indicator](marble-sandbox.png)
+![Marble Sandbox](marble-sandbox.png)
 
-**Iteration 5**: "3rd person view, add calibration"
-→ Claude builds 3rd-person marble game
-→ **My feedback**: "Forward/backward too sticky, remove obstacles, reduce sensitivity"
-→ **Discovery**: Getting close, controls need fine-tuning
+**Iteration 5**: "3rd person marble game"
+→ Marble game with calibration system
+→ "Close! Controls are too sensitive, movement feels sticky"
+→ **Discovered**: Fine-tuning matters more than features
 
-![Marble Chase - 3rd person marble navigation](marble-chase.png)
+![Marble Chase](marble-chase.png)
 
-**Iteration 6**: "Make it beautiful, add terrain, show acceleration visually"
-→ Claude builds wireframe game with procedural terrain
-→ **My feedback**: "Terrain looks flat... player marble doesn't revolve... camera should follow terrain"
-→ **Discovery**: Need proper 3D rendering (WebGL), dynamic camera system
+**Iteration 6**: "Make it beautiful, show acceleration visually"
+→ Wireframe game with procedural terrain
+→ "Terrain looks flat, camera should follow like driving"
+→ **Discovered**: Need WebGL for proper 3D, dynamic camera sells the experience
 
-![Final Inertia game with dynamic camera and terrain](inertia-final.png)
+![Final Inertia game](inertia-final.png)
 
-After 6 iterations and dozens of micro-adjustments, we landed on:
-- WebGL wireframe aesthetic (discovered: Canvas 2D couldn't convey depth)
-- Ring-sphere player that visually shows rotation (discovered: needed better acceleration feedback)
-- Procedural 3D terrain (discovered: static terrain felt wrong)
-- Dynamic camera that zooms with speed and follows terrain elevation (discovered: camera perspective sells the experience)
+Notice what happened: the final product (WebGL marble game with ring-sphere player and dynamic camera) wasn't anywhere in my head at the start. Each feature emerged from reacting to the previous prototype. "The terrain looks flat" led to WebGL. "Can't tell which way I'm accelerating" led to the ring-sphere design. "Camera feels static" led to the dynamic look-ahead system.
 
-**The key insight**: I never asked for any of these features upfront. They emerged from feedback loops. "The terrain looks flat" → WebGL implementation. "Can't see the marble rotating" → ring-sphere design. "Camera should follow like a driver's view" → dynamic look-ahead system.
+I didn't design the product. I *discovered* it.
 
-Each refinement took 30 seconds to 2 minutes: describe the problem, Claude implements a fix, test immediately, provide feedback.
+## Why This Works
 
-## Why This Matters: The Autonomous Agent Thesis
+The feedback loop is fast enough that you can think by building:
 
-Here's what makes this experiment significant: **The human (me) in this loop could be replaced by an automated feedback system.**
+1. Describe what's wrong (takes 5 seconds)
+2. Claude implements a fix (takes 30-60 seconds)
+3. Test it (takes 10 seconds)
+4. React to the result
+5. Repeat
 
-Consider the pattern:
+Traditional development has too much friction for this. By the time you've written a spec, assigned the work, reviewed the PR, and deployed, you've forgotten what you were reacting to. Discovery Mode keeps the reaction immediate.
 
-1. **Generate** → AI creates a prototype based on vague requirements
-2. **Test** → Someone interacts with it
-3. **Analyze** → Feedback is collected ("this is okay-ish", "controls are unintuitive")
-4. **Refine** → AI interprets feedback and improves the product
-5. **Repeat**
+It also works because AI can interpret vague feedback. "Make it more fun" isn't actionable for a human developer without a long conversation about what "fun" means. But Claude can just try something - add obstacles, change mechanics, adjust physics - and I can react to the result. The conversation happens through prototypes, not words.
 
-Right now, step 3 requires a human. But what if it didn't?
+## The Interesting Implication
 
-### The Automated Experimentation Future
+Right now, Discovery Mode needs a human in the loop. Someone has to play the game and say "this feels sticky" or "the camera is weird." That's the bottleneck.
 
-Imagine an autonomous agent that:
+But that feedback could come from other sources:
+- Automated testing ("users drop off after 30 seconds")
+- Analytics ("no one uses feature X")
+- Simulated users ("agent reports confusion at step 3")
 
-1. **Generates** multiple product variations based on a vague idea
-2. **Deploys** them to test users or simulated environments
-3. **Collects** usage data: engagement metrics, user feedback, crash reports
-4. **Analyzes** patterns: "Users abandon when X", "Feature Y is never used", "Users request Z"
-5. **Iterates** automatically, creating new versions that address discovered issues
-6. **Scales** the successful variations, kills the unsuccessful ones
+The pieces exist: AI that codes, systems that deploy, tools that measure. What's missing is the orchestration layer that ties them together.
 
-This isn't science fiction - every component exists today:
+I'm not making predictions about when or whether this happens. I'm just noting that the workflow I ran manually - generate, test, analyze feedback, iterate - doesn't inherently require a human at every step. The human provided taste and judgment, but a lot of that feedback was mechanical: "this is broken," "this is slow," "this doesn't respond to input."
 
-- **AI that codes**: Claude Code, GPT-4, Cursor, etc.
-- **Instant deployment**: Vercel, Netlify, GitHub Pages with automated pipelines
-- **Automated testing**: Playwright, Cypress, integration test frameworks
-- **Analytics**: Google Analytics, Mixpanel, PostHog for usage data
-- **Feedback collection**: User surveys, sentiment analysis, behavioral metrics
-- **AI that interprets data**: LLMs can analyze feedback and identify patterns
+![Development workflow](workflow-diagram.png)
 
-The only missing piece is **orchestration** - an agent that ties these systems together and runs the loop autonomously.
+## Technical Notes
 
-### What the Phone Setup Proves
+The final game uses:
+- WebGL 1.0 with custom shaders
+- Device Orientation API with calibration
+- Procedural terrain from layered sine waves
+- Dynamic camera (height and distance scale with speed)
 
-Building Inertia on a phone demonstrates something crucial: **The barrier to entry for this workflow is incredibly low.**
+Deployment was `gh repo create` + GitHub Pages API. Under a minute from local to production.
 
-If one person with a $150 phone can:
-- Generate a complete WebGL game from natural language
-- Test it instantly on the same device
-- Deploy it to production in seconds
-- Iterate based on feedback in real-time
+The repository includes all six iterations as separate HTML files, so you can see the evolution.
 
-Then a system with:
-- Cloud compute (cheaper than a phone)
-- Automated deployment (already solved)
-- Programmatic testing (already solved)
-- Feedback analysis (already solved)
+## Try It
 
-...could run thousands of these experiments in parallel, discovering products through automated evolution.
+**Play**: [https://kikkupico.github.io/inertia/](https://kikkupico.github.io/inertia/)
 
-## The Feedback Loop as Discovery Mechanism
+**Code**: [https://github.com/kikkupico/inertia](https://github.com/kikkupico/inertia)
 
-![Development workflow showing the iterate-test-feedback cycle](workflow-diagram.png)
-
-Traditional product development:
-1. Define requirements (weeks)
-2. Design (weeks)
-3. Build (months)
-4. Test (weeks)
-5. Launch
-6. Discover what users actually want (oops)
-
-Exploratory development with AI:
-1. Vague idea
-2. Build → Test → Feedback → Refine (minutes per cycle)
-3. Repeat until convergence
-4. Deploy
-
-The product emerges from experimentation rather than planning.
-
-This works because:
-
-**AI can interpret vague feedback**: "Make it more fun" → Claude tries different game mechanics. "Controls are unintuitive" → Claude adds visual indicators.
-
-**Iteration is cheap**: No context switching, no meetings, no design docs. Just conversation and code generation.
-
-**Testing is instant**: Local server on the same device. Browser tab opens, test, provide feedback. 30 seconds.
-
-**Deployment is trivial**: `gh repo create` + GitHub Pages. Production-ready in under a minute.
-
-## Scaling to Autonomous Systems
-
-The experiment validates a hypothesis: **Product discovery can be automated through rapid iteration and feedback analysis.**
-
-What changes when you remove the human bottleneck?
-
-### Current (Human-in-Loop):
-- 1 developer
-- 6 major iterations in 3 hours
-- 1 final product
-- Feedback: qualitative descriptions from 1 person
-
-### Future (Autonomous):
-- N agents in parallel
-- Thousands of iterations per hour
-- M product variations tested simultaneously
-- Feedback: quantitative metrics from hundreds/thousands of users or simulations
-
-The agent becomes a **product discovery engine**:
-
-```
-Input: "Create engaging mobile games"
-Process:
-  - Generate 100 game concepts
-  - Build prototypes for top 20
-  - Deploy to test group
-  - Analyze engagement, retention, feedback
-  - Kill bottom 15
-  - Iterate on top 5
-  - Repeat
-Output: 2-3 games that users actually love
+**Replicate**:
+```bash
+# On any Android phone with Termux
+pkg install nodejs git
+npm install -g @anthropic-ai/claude-code
+claude
+# Start with a vague idea. See what emerges.
 ```
 
-All without human intervention until the final approval step.
+## The Meta
 
-## Technical Details (For the Curious)
+This post went through the same process. First draft focused on technical details. Feedback: "emphasize the methodology, not the game." Second draft was repetitive. Feedback: "tighten it up, explain how it differs from vibe coding." Third draft landed here.
 
-The final game runs on:
-- **WebGL 1.0** for 3D rendering (vertex/fragment shaders, depth testing)
-- **Device Orientation API** with calibration at game start
-- **Procedural terrain** using layered sine waves for height generation
-- **Dynamic camera** that adjusts height/distance based on player speed
-- **Node.js http-server** for local development testing
+I didn't outline the post. I discovered its structure by writing drafts and reacting to them.
 
-Deployment from the phone took 60 seconds via `gh repo create` and `gh api` to enable GitHub Pages.
-
-All code, commits, and even this blog post were generated on the Redmi Note 9 through conversational interaction with Claude Code.
-
-## Implications
-
-This experiment demonstrates three things:
-
-**1. Exploratory development is viable today**
-
-You don't need complete requirements upfront. Start with a vague idea, build prototypes, let feedback guide refinement. The product discovers itself through iteration.
-
-**2. The tooling is democratized**
-
-A $150 phone is sufficient for:
-- Full-stack development
-- Instant testing and iteration
-- Production deployment
-- AI-assisted code generation
-
-No expensive hardware. No complex setup. Termux + Node.js + Claude Code + GitHub.
-
-**3. Autonomous agents are one orchestration layer away**
-
-Every piece exists:
-- AI that generates code ✓
-- Systems that deploy automatically ✓
-- Tools that collect usage data ✓
-- AI that analyzes feedback ✓
-
-We just need to connect them and let them run unsupervised.
-
-The future isn't "AI helps developers write code faster." It's "AI discovers products through automated experimentation."
-
-## The Meta Layer
-
-This blog post was written using the same methodology:
-
-- **Vague input**: "Create a blog post about building Inertia"
-- **First draft**: Too focused on technical details
-- **Feedback**: "Emphasize exploratory development and autonomous agents"
-- **Refinement**: Complete rewrite with new focus
-- **Iteration**: Multiple rounds of feedback and adjustments
-
-Even the writing follows the exploratory development pattern. The post discovered its own structure through iteration.
-
-![The blog post being edited in the Termux terminal](editing-blog-post.png)
-
-## Try It Yourself
-
-**Play the game**: [https://kikkupico.github.io/inertia/](https://kikkupico.github.io/inertia/)
-
-**View the code**: [https://github.com/kikkupico/inertia](https://github.com/kikkupico/inertia)
-
-The repository includes all six iterations. You can see the evolution from particle painter to WebGL game through the commit history and individual HTML files.
-
-**Replicate the experiment**:
-1. Get an old Android phone (anything with 4GB+ RAM)
-2. Install Termux from F-Droid
-3. `pkg install nodejs git && npm install -g @anthropic-ai/claude-code`
-4. Start with a vague idea
-5. Let iteration discover the product
-
-## The Future is Exploratory
-
-Traditional software development:
-- Plan everything upfront
-- Build according to spec
-- Hope users want what you built
-
-Exploratory development with AI:
-- Start with vague direction
-- Build → Test → Learn → Iterate
-- Discover what works through experimentation
-
-Autonomous agent future:
-- Specify high-level goals
-- Let agents experiment in parallel
-- Automatically discover successful products
-- Human approval as final gate
-
-We're not there yet. But this experiment shows we're closer than most people think.
-
-All it took was a phone, an AI assistant, and three hours of curiosity.
+![Editing this post in Termux](editing-blog-post.png)
 
 ---
 
-**Meta**: This entire project - game development (6 iterations, 3 hours), deployment, and blog post - was created on a Redmi Note 9 running Claude Code in Termux. The phone is four years old, cost $150 new, and has 4GB RAM. The Node.js server runs on the same device for instant testing. Everything from code generation to git commits to this markdown file happened through conversational interaction with Claude.
+Everything here - game, deployment, blog post - was built on a Redmi Note 9 in Termux through conversation with Claude. The phone is incidental. The process is the point: when iteration is fast enough, you can build things you couldn't have specified upfront.
 
-**The point**: If this is possible today on a basic phone with one person providing feedback, imagine what autonomous systems could discover tomorrow.
+Discovery Mode isn't about AI writing code faster. It's about finding out what you want by seeing what you don't want, one prototype at a time.
