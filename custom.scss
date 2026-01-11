@@ -192,6 +192,12 @@ img {
   color: #000000 !important;
 }
 
+/* Remove line separator between listing items */
+.quarto-post {
+    border-bottom: none !important;
+    margin-bottom: 3rem !important; /* Added for visual separation */
+}
+
 /* Links in body */
 a {
   color: #000000;
