@@ -1,277 +1,325 @@
 ---
-title: "Building Inertia: A WebGL Game Developed Entirely on a Phone"
+title: "Exploratory Development: Discovering Products Through AI-Assisted Iteration"
 author: "kikkupico"
 date: "2026-01-11"
-categories: [gamedev, webgl, mobile, ai, javascript]
+categories: [ai, product-development, automation, gamedev, webgl]
 image: "hero.png"
 ---
 
-## The Challenge
+## The Experiment
 
-What if you could build a fully-featured WebGL game using nothing but a 4-year-old Android phone? No laptop, no desktop, just a Redmi Note 9 with 4GB RAM running Termux and Claude Code. That's exactly what I set out to do, and the result is [Inertia](https://kikkupico.github.io/inertia/) - a tilt-controlled 3D marble game with procedural terrain.
+I started with a vague idea: "Create a web-based game that leverages the accelerometer creatively."
+
+No wireframes. No design doc. No technical specifications. Just a single sentence and an AI assistant running on a 4-year-old phone.
+
+Three hours later, I had [Inertia](https://kikkupico.github.io/inertia/) - a polished WebGL game with procedural terrain, dynamic camera systems, and intuitive tilt controls. But more importantly, I had validated a development methodology that could fundamentally change how we build software.
+
+This is about **exploratory development** - discovering products through rapid iteration and experimentation rather than upfront planning. And it's a glimpse into a future where autonomous agents could generate, test, and refine products with minimal human intervention.
 
 ![Inertia gameplay showing the ring-sphere player navigating 3D terrain](hero.png)
 
 ## The Development Environment
 
-The entire game was built on:
+![Termux running Claude Code on a phone screen](termux-setup.png)
 
-- **Hardware**: Redmi Note 9 (Android 12, 4GB RAM)
-- **Terminal**: Termux 0.118.1
-- **AI Assistant**: Claude Code (Sonnet 4.5)
-- **Version Control**: Git + GitHub CLI
-- **Server**: Python's http.server for live testing
+The entire experiment ran on:
 
-No external monitors, no keyboard, no mouse. Just a phone, a touchscreen, and conversational AI to handle the heavy lifting.
+- **Hardware**: Redmi Note 9 (Android 12, 4GB RAM) - a $150 phone from 2020
+- **Terminal**: Termux 0.118.1 - Linux environment on Android
+- **AI Assistant**: Claude Code (Sonnet 4.5) - conversational development interface
+- **Local Server**: Node.js http-server for instant testing on the same device
+- **Version Control**: Git + GitHub CLI for deployment
 
-## The Iterative Journey
+![Claude Code terminal interface showing the development session](claude-interface.png)
 
-The game went through six major iterations before reaching its final form. Each version taught us something new about mobile game development and accelerometer controls.
+No laptop. No desktop. No external keyboard. Just a phone, natural language, and an AI that writes code.
 
-### Iteration 1: Cosmic Painter
+The significance isn't the hardware constraints - it's what this enables: **a complete feedback loop in one device**. I could describe what I wanted, Claude would build it, I'd test it instantly by opening a browser tab, provide feedback, and iterate. All within seconds, all on a touchscreen.
 
-The first prototype was a particle-based art tool where tilting the phone controlled gravity. It was visually interesting but lacked gameplay depth.
+## Exploratory Development in Action
+
+This is where it gets interesting. I didn't know what the final product would be. I just knew I wanted something "fun" that used the accelerometer "creatively."
+
+The development followed a pattern:
+
+1. **Vague feedback** ("this is okay-ish, can we build something more fun?")
+2. **AI interprets and builds** (creates a new prototype)
+3. **Instant testing** (I tilt my phone and see what happens)
+4. **Specific feedback emerges** ("the controls are unintuitive", "forward/backward is flipped")
+5. **Refinement** (AI fixes the issues)
+6. **Repeat**
+
+Each iteration wasn't planned - it **emerged** from the previous one's feedback. The product discovered itself through experimentation.
+
+### The Evolution: From Vague to Specific
+
+**Iteration 1**: "Create a web game that leverages accelerometer creatively"
+→ Claude builds particle art tool with tilt-controlled gravity
+→ **My feedback**: "Okay-ish, can we build something more fun?"
+→ **Discovery**: Need actual gameplay, not just visual effects
 
 ![Cosmic Painter - particle art with tilt-based gravity](cosmic-painter.png)
 
-**Verdict**: "Okay-ish" - needed actual game mechanics.
-
-### Iteration 2: Tilt Runner
-
-An endless runner where tilting dodged obstacles. This felt more like a real game with clear objectives and challenge.
+**Iteration 2**: "Something more fun to play"
+→ Claude builds endless runner with tilt controls
+→ **My feedback**: "Much better, but I want something more complicated with a different art style"
+→ **Discovery**: I like gameplay with objectives, want visual variety
 
 ![Tilt Runner - endless runner with obstacles](tilt-runner.png)
 
-**Verdict**: "Much better" - but the user wanted something more complex with a different art style.
-
-### Iteration 3: Sky Garden
-
-An isometric puzzle game with switches, portals, and moving platforms. This introduced proper physics and spatial reasoning.
+**Iteration 3**: "More complicated, different art style"
+→ Claude builds isometric puzzle game with physics
+→ **My feedback**: "Love the isometrics and physics, but hard to understand how tilt affects the environment"
+→ **Discovery**: Good mechanics, bad control feedback
 
 ![Sky Garden - isometric puzzle with physics](sky-garden.png)
 
-**Verdict**: Loved the isometrics and physics, but tilt controls were unintuitive.
-
-### Iteration 4: Marble Sandbox
-
-A forgiving sandbox environment with a clear tilt indicator to help understand controls. Built in isometric view with better visual feedback.
+**Iteration 4**: "Keep isometrics/physics, make controls more intuitive"
+→ Claude builds sandbox with tilt indicator
+→ **My feedback**: "Tilt indicator moves but the marble doesn't... forward/backward is flipped"
+→ **Discovery**: Technical bugs, perspective isn't helping spatial understanding
 
 ![Marble Sandbox - isometric sandbox with tilt indicator](marble-sandbox.png)
 
-**Technical challenge**: The player marble was initially a plain object without update methods. Debugging on a phone screen revealed the issue quickly thanks to Claude's diagnostic approach.
-
-**Verdict**: Controls improved but needed better perspective for spatial awareness.
-
-### Iteration 5: Marble Chase
-
-A 3rd-person view marble game with intuitive controls. This version introduced:
-
-- **Calibration system**: The tilt angle at game start becomes the zero-velocity position
-- **Reduced sensitivity**: Required more deliberate tilting for movement
-- **Speed capping**: Prevented the marble from becoming uncontrollable
+**Iteration 5**: "3rd person view, add calibration"
+→ Claude builds 3rd-person marble game
+→ **My feedback**: "Forward/backward too sticky, remove obstacles, reduce sensitivity"
+→ **Discovery**: Getting close, controls need fine-tuning
 
 ![Marble Chase - 3rd person marble navigation](marble-chase.png)
 
-**Technical challenges solved**:
-- Forward/backward movement was initially flipped (fixed by negating tiltY)
-- Movement sensitivity required multiple adjustments (divisor tuning from 45 to 35)
-- Forward/backward felt "sticky" compared to left/right controls
-
-### Iteration 6: Inertia (Final)
-
-The final version combined everything learned with a complete visual overhaul:
-
-**Visual Design**:
-- Wireframe aesthetic with green gridlines on black background
-- Ring-sphere player (two orthogonal rings) that rotates with tilt
-- 3D terrain mesh with visible elevation changes
-- Golden diamond treasures
-
-**Technical Implementation**:
-
-```javascript
-// Procedural terrain using layered sine waves
-function noise(x, y) {
-    let value = 0;
-    value += Math.sin(x * 0.05) * Math.cos(y * 0.05) * 1.0; // Large hills
-    value += Math.sin(x * 0.1 + y * 0.08) * 0.6;             // Medium features
-    value += Math.sin(x * 0.2 + y * 0.15) * 0.3;             // Small ripples
-    return value;
-}
-
-function getTerrainHeight(x, y) {
-    return noise(x, y) * 2; // Height range: -5 to +5
-}
-```
-
-**Dynamic Camera System**:
-- Zooms out as speed increases (closer when slow, farther when fast)
-- Positioned behind player based on movement direction
-- Looks ahead at terrain elevation like a driver's perspective
-- Smooth interpolation for all camera movements
-
-```javascript
-// Camera follows terrain ahead
-const lookAtZ = getTerrainHeight(camera.lookAheadX, camera.lookAheadY);
-const target = [camera.lookAheadX, lookAtZ + 0.5, -camera.lookAheadY];
-```
+**Iteration 6**: "Make it beautiful, add terrain, show acceleration visually"
+→ Claude builds wireframe game with procedural terrain
+→ **My feedback**: "Terrain looks flat... player marble doesn't revolve... camera should follow terrain"
+→ **Discovery**: Need proper 3D rendering (WebGL), dynamic camera system
 
 ![Final Inertia game with dynamic camera and terrain](inertia-final.png)
 
-## Technical Challenges
+After 6 iterations and dozens of micro-adjustments, we landed on:
+- WebGL wireframe aesthetic (discovered: Canvas 2D couldn't convey depth)
+- Ring-sphere player that visually shows rotation (discovered: needed better acceleration feedback)
+- Procedural 3D terrain (discovered: static terrain felt wrong)
+- Dynamic camera that zooms with speed and follows terrain elevation (discovered: camera perspective sells the experience)
 
-### Challenge 1: Canvas 2D Limitations
+**The key insight**: I never asked for any of these features upfront. They emerged from feedback loops. "The terrain looks flat" → WebGL implementation. "Can't see the marble rotating" → ring-sphere design. "Camera should follow like a driver's view" → dynamic look-ahead system.
 
-Initial attempts used Canvas 2D with isometric projection. The terrain looked flat despite having elevation data because 2D rendering couldn't properly convey depth.
+Each refinement took 30 seconds to 2 minutes: describe the problem, Claude implements a fix, test immediately, provide feedback.
 
-**Solution**: Switched to WebGL with proper 3D rendering, perspective projection, and depth testing.
+## Why This Matters: The Autonomous Agent Thesis
 
-### Challenge 2: Stationary Terrain Grid
+Here's what makes this experiment significant: **The human (me) in this loop could be replaced by an automated feedback system.**
 
-The terrain was regenerating every frame centered on the player, making it appear stationary relative to the camera.
+Consider the pattern:
 
-**Solution**: Snapped terrain generation to a fixed world grid:
+1. **Generate** → AI creates a prototype based on vague requirements
+2. **Test** → Someone interacts with it
+3. **Analyze** → Feedback is collected ("this is okay-ish", "controls are unintuitive")
+4. **Refine** → AI interprets feedback and improves the product
+5. **Repeat**
 
-```javascript
-const snapSize = step * 4;
-const snappedOffsetX = Math.floor(offsetX / snapSize) * snapSize;
-const snappedOffsetY = Math.floor(offsetY / snapSize) * snapSize;
+Right now, step 3 requires a human. But what if it didn't?
+
+### The Automated Experimentation Future
+
+Imagine an autonomous agent that:
+
+1. **Generates** multiple product variations based on a vague idea
+2. **Deploys** them to test users or simulated environments
+3. **Collects** usage data: engagement metrics, user feedback, crash reports
+4. **Analyzes** patterns: "Users abandon when X", "Feature Y is never used", "Users request Z"
+5. **Iterates** automatically, creating new versions that address discovered issues
+6. **Scales** the successful variations, kills the unsuccessful ones
+
+This isn't science fiction - every component exists today:
+
+- **AI that codes**: Claude Code, GPT-4, Cursor, etc.
+- **Instant deployment**: Vercel, Netlify, GitHub Pages with automated pipelines
+- **Automated testing**: Playwright, Cypress, integration test frameworks
+- **Analytics**: Google Analytics, Mixpanel, PostHog for usage data
+- **Feedback collection**: User surveys, sentiment analysis, behavioral metrics
+- **AI that interprets data**: LLMs can analyze feedback and identify patterns
+
+The only missing piece is **orchestration** - an agent that ties these systems together and runs the loop autonomously.
+
+### What the Phone Setup Proves
+
+Building Inertia on a phone demonstrates something crucial: **The barrier to entry for this workflow is incredibly low.**
+
+If one person with a $150 phone can:
+- Generate a complete WebGL game from natural language
+- Test it instantly on the same device
+- Deploy it to production in seconds
+- Iterate based on feedback in real-time
+
+Then a system with:
+- Cloud compute (cheaper than a phone)
+- Automated deployment (already solved)
+- Programmatic testing (already solved)
+- Feedback analysis (already solved)
+
+...could run thousands of these experiments in parallel, discovering products through automated evolution.
+
+## The Feedback Loop as Discovery Mechanism
+
+![Development workflow showing the iterate-test-feedback cycle](workflow-diagram.png)
+
+Traditional product development:
+1. Define requirements (weeks)
+2. Design (weeks)
+3. Build (months)
+4. Test (weeks)
+5. Launch
+6. Discover what users actually want (oops)
+
+Exploratory development with AI:
+1. Vague idea
+2. Build → Test → Feedback → Refine (minutes per cycle)
+3. Repeat until convergence
+4. Deploy
+
+The product emerges from experimentation rather than planning.
+
+This works because:
+
+**AI can interpret vague feedback**: "Make it more fun" → Claude tries different game mechanics. "Controls are unintuitive" → Claude adds visual indicators.
+
+**Iteration is cheap**: No context switching, no meetings, no design docs. Just conversation and code generation.
+
+**Testing is instant**: Local server on the same device. Browser tab opens, test, provide feedback. 30 seconds.
+
+**Deployment is trivial**: `gh repo create` + GitHub Pages. Production-ready in under a minute.
+
+## Scaling to Autonomous Systems
+
+The experiment validates a hypothesis: **Product discovery can be automated through rapid iteration and feedback analysis.**
+
+What changes when you remove the human bottleneck?
+
+### Current (Human-in-Loop):
+- 1 developer
+- 6 major iterations in 3 hours
+- 1 final product
+- Feedback: qualitative descriptions from 1 person
+
+### Future (Autonomous):
+- N agents in parallel
+- Thousands of iterations per hour
+- M product variations tested simultaneously
+- Feedback: quantitative metrics from hundreds/thousands of users or simulations
+
+The agent becomes a **product discovery engine**:
+
+```
+Input: "Create engaging mobile games"
+Process:
+  - Generate 100 game concepts
+  - Build prototypes for top 20
+  - Deploy to test group
+  - Analyze engagement, retention, feedback
+  - Kill bottom 15
+  - Iterate on top 5
+  - Repeat
+Output: 2-3 games that users actually love
 ```
 
-### Challenge 3: Ring Rotation Not Visible
+All without human intervention until the final approval step.
 
-The player's ring-sphere wasn't rotating, making acceleration difficult to perceive.
+## Technical Details (For the Curious)
 
-**Solution**: Rotated rings based on tilt input (not velocity):
+The final game runs on:
+- **WebGL 1.0** for 3D rendering (vertex/fragment shaders, depth testing)
+- **Device Orientation API** with calibration at game start
+- **Procedural terrain** using layered sine waves for height generation
+- **Dynamic camera** that adjusts height/distance based on player speed
+- **Node.js http-server** for local development testing
 
-```javascript
-player.rotationX += tiltY * 0.1;
-player.rotationY += tiltX * 0.1;
-```
+Deployment from the phone took 60 seconds via `gh repo create` and `gh api` to enable GitHub Pages.
 
-### Challenge 4: Flat-Looking Terrain
+All code, commits, and even this blog post were generated on the Redmi Note 9 through conversational interaction with Claude Code.
 
-Despite having elevation data, the terrain appeared flat from the high camera angle.
+## Implications
 
-**Solution**:
-- Simplified noise function to remove double-scaling
-- Lowered camera height (from 8 to 4 units above player)
-- Adjusted camera angle to look more forward than down
+This experiment demonstrates three things:
 
-## The Mobile Development Experience
+**1. Exploratory development is viable today**
 
-### What Worked Well
+You don't need complete requirements upfront. Start with a vague idea, build prototypes, let feedback guide refinement. The product discovers itself through iteration.
 
-**Conversational Development**: Instead of typing out code on a touchscreen keyboard, I described what I wanted in natural language. Claude Code explored the codebase, made edits, and created commits.
+**2. The tooling is democratized**
 
-**Rapid Iteration**: Going from concept to working prototype took minutes, not hours. Each iteration built on the previous one's learnings.
+A $150 phone is sufficient for:
+- Full-stack development
+- Instant testing and iteration
+- Production deployment
+- AI-assisted code generation
 
-**Live Testing**: Python's http.server allowed instant testing on the same device. No deploy pipeline needed for development.
+No expensive hardware. No complex setup. Termux + Node.js + Claude Code + GitHub.
 
-**Version Control**: Git operations handled entirely through conversation. Claude created commits with proper messages and co-authorship attribution.
+**3. Autonomous agents are one orchestration layer away**
 
-### What Was Challenging
+Every piece exists:
+- AI that generates code ✓
+- Systems that deploy automatically ✓
+- Tools that collect usage data ✓
+- AI that analyzes feedback ✓
 
-**Debugging Visual Issues**: "The terrain looks flat" is harder to diagnose than a console error. Required multiple back-and-forth iterations to identify the camera angle issue.
+We just need to connect them and let them run unsupervised.
 
-**Small Screen Limitations**: Viewing code diffs and understanding complex 3D transformations on a 6.53" screen required clear mental models.
+The future isn't "AI helps developers write code faster." It's "AI discovers products through automated experimentation."
 
-**Accelerometer Calibration**: Different devices and orientations made testing tricky. The calibration system (storing initial tilt as zero) solved this elegantly.
+## The Meta Layer
 
-## The Final Stack
+This blog post was written using the same methodology:
 
-**Rendering**:
-- WebGL 1.0 (maximum compatibility)
-- Custom vertex and fragment shaders
-- Matrix math for 3D transformations (perspective, lookAt, rotation)
+- **Vague input**: "Create a blog post about building Inertia"
+- **First draft**: Too focused on technical details
+- **Feedback**: "Emphasize exploratory development and autonomous agents"
+- **Refinement**: Complete rewrite with new focus
+- **Iteration**: Multiple rounds of feedback and adjustments
 
-**Game Logic**:
-- Device Orientation API with calibration
-- Velocity-based physics with friction
-- Slope physics (terrain gradient affects movement)
-- Simple collision detection for treasure collection
+Even the writing follows the exploratory development pattern. The post discovered its own structure through iteration.
 
-**Development Tools**:
-- Claude Code for all code generation and editing
-- Git for version control
-- GitHub Pages for deployment
-- Python http.server for local testing
+![The blog post being edited in the Termux terminal](editing-blog-post.png)
 
-## Performance
+## Try It Yourself
 
-On the Redmi Note 9:
-- Solid 60fps rendering
-- Smooth accelerometer response
-- No noticeable lag or frame drops
-- Terrain regeneration happens seamlessly
+**Play the game**: [https://kikkupico.github.io/inertia/](https://kikkupico.github.io/inertia/)
 
-The game runs on any device with WebGL support and device orientation API, including:
-- Modern smartphones (Android/iOS)
-- Tablets
-- Laptops with accelerometers
-- Desktop with arrow key controls as fallback
+**View the code**: [https://github.com/kikkupico/inertia](https://github.com/kikkupico/inertia)
 
-## Deployment
+The repository includes all six iterations. You can see the evolution from particle painter to WebGL game through the commit history and individual HTML files.
 
-Deploying to GitHub Pages from the phone:
+**Replicate the experiment**:
+1. Get an old Android phone (anything with 4GB+ RAM)
+2. Install Termux from F-Droid
+3. `pkg install nodejs git && npm install -g @anthropic-ai/claude-code`
+4. Start with a vague idea
+5. Let iteration discover the product
 
-```bash
-# Rename and organize files
-mv inertia.html index.html
+## The Future is Exploratory
 
-# Initialize repository
-git init
-git branch -m main
-git add .
-git commit -m "Initial commit: Inertia - WebGL tilt-based marble game"
+Traditional software development:
+- Plan everything upfront
+- Build according to spec
+- Hope users want what you built
 
-# Create public repo and push
-gh repo create inertia --public --source=. --remote=origin --push
+Exploratory development with AI:
+- Start with vague direction
+- Build → Test → Learn → Iterate
+- Discover what works through experimentation
 
-# Enable GitHub Pages
-gh api repos/kikkupico/inertia/pages -X POST \
-    -f source[branch]=main -f source[path]=/
-```
+Autonomous agent future:
+- Specify high-level goals
+- Let agents experiment in parallel
+- Automatically discover successful products
+- Human approval as final gate
 
-The entire deployment process took under a minute.
+We're not there yet. But this experiment shows we're closer than most people think.
 
-## Play It Now
-
-**Live Demo**: [https://kikkupico.github.io/inertia/](https://kikkupico.github.io/inertia/)
-
-**Source Code**: [https://github.com/kikkupico/inertia](https://github.com/kikkupico/inertia)
-
-The repository includes all six iterations, so you can see the evolution from simple particle painter to full 3D WebGL game.
-
-## Lessons Learned
-
-1. **Mobile development is viable**: With the right tools (AI assistants, terminal environments), a phone can be a legitimate development platform.
-
-2. **Iteration is key**: The final game was iteration 6. Each version taught us something that informed the next design.
-
-3. **WebGL on mobile is powerful**: Modern phones have impressive GPU capabilities. WebGL unlocks them for web games.
-
-4. **Calibration matters**: For accelerometer games, letting users calibrate at game start is essential for good UX.
-
-5. **Camera perspective sells the experience**: The dynamic camera that zooms with speed and follows terrain elevation transformed the game feel.
-
-6. **AI-assisted development shines on mobile**: The conversational interface eliminates touchscreen typing as a bottleneck.
-
-## What's Next?
-
-Potential enhancements for Inertia:
-
-- Procedural treasure placement based on terrain features
-- Multiple difficulty levels with varying terrain complexity
-- Leaderboard integration
-- Sound effects and haptic feedback
-- Progressive terrain loading for infinite worlds
-- Multiplayer ghost racing
-
-But for now, Inertia stands as proof that you don't need a powerful desktop workstation to build compelling WebGL games. You just need curiosity, persistence, and the right tools.
+All it took was a phone, an AI assistant, and three hours of curiosity.
 
 ---
 
-*This entire project - from first prototype to deployed game to this blog post - was created on a Redmi Note 9 running Termux and Claude Code. Total development time: approximately 3 hours across one evening.*
+**Meta**: This entire project - game development (6 iterations, 3 hours), deployment, and blog post - was created on a Redmi Note 9 running Claude Code in Termux. The phone is four years old, cost $150 new, and has 4GB RAM. The Node.js server runs on the same device for instant testing. Everything from code generation to git commits to this markdown file happened through conversational interaction with Claude.
 
-*Try the game on your phone and see what an old Android device can create!*
+**The point**: If this is possible today on a basic phone with one person providing feedback, imagine what autonomous systems could discover tomorrow.
