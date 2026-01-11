@@ -1,5 +1,5 @@
 ---
-title: "Discovery Mode: Building Products When You Don't Know What You're Building"
+title: "Vibe Discovery: I Built a Mobile Game on an Old Phone Without Knowing What I Was Building"
 author: "kikkupico"
 date: "2026-01-11"
 categories: [ai, product-development, gamedev, webgl]
@@ -10,7 +10,7 @@ image: "hero.png"
 
 "Create a web-based game that leverages the accelerometer creatively."
 
-That was the entire spec. No wireframes, no design doc, no feature list. Three hours later, I had [Inertia](https://kikkupico.github.io/inertia/) - a WebGL marble game with procedural terrain and dynamic camera. The interesting part isn't the game itself. It's that I didn't know I was building a marble game until iteration 4.
+That was the entire spec. No wireframes, no design doc, no feature list. I typed this into Claude Code running on my Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Three hours later, I had [Inertia](https://kikkupico.github.io/inertia/) - a WebGL marble game with procedural terrain and dynamic camera. The interesting part isn't the game itself. It's that I didn't know I was building a marble game until iteration 4.
 
 ![Inertia gameplay showing the ring-sphere player navigating 3D terrain](hero.png)
 
@@ -18,18 +18,18 @@ That was the entire spec. No wireframes, no design doc, no feature list. Three h
 
 "Vibe coding" typically means: you know what you want to build, you just let AI handle the implementation details. You have a mental image of the end product - maybe a todo app, a chat interface, a dashboard - and you describe it loosely while the AI figures out the code.
 
-What I'm describing is different. I'll call it **Discovery Mode**: you don't know what you're building. The *requirements themselves* are undefined. You're not just discovering implementation - you're discovering what the product should be.
+What I'm describing is different. I'll call it **Vibe Discovery**: you don't know what you're building. The *requirements themselves* are undefined. You're not just discovering implementation - you're discovering what the product should be.
 
 The distinction matters:
 
-| Vibe Coding | Discovery Mode |
+| Vibe Coding | Vibe Discovery |
 |-------------|----------------|
 | "Build me a todo app with drag-and-drop" | "Build me something fun with the accelerometer" |
 | Requirements known, implementation fuzzy | Requirements unknown, discovered through building |
 | AI translates intent to code | AI proposes, human reacts, product emerges |
 | End state imagined upfront | End state discovered through iteration |
 
-In Discovery Mode, you're not directing - you're *reacting*. Each prototype teaches you what you actually want.
+In Vibe Discovery, you're not directing - you're *reacting*. Each prototype teaches you what you actually want.
 
 ## The Setup
 
@@ -39,7 +39,7 @@ The whole thing ran on a Redmi Note 9 - a 4-year-old Android phone with 4GB RAM.
 
 ![Claude Code terminal interface showing the development session](claude-interface.png)
 
-The phone isn't the point. The point is that the entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Discovery Mode work.
+The phone isn't the point. The point is that the entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Vibe Discovery work.
 
 ## Six Iterations, Six Discoveries
 
@@ -101,13 +101,13 @@ The feedback loop is fast enough that you can think by building:
 4. React to the result
 5. Repeat
 
-Traditional development has too much friction for this. By the time you've written a spec, assigned the work, reviewed the PR, and deployed, you've forgotten what you were reacting to. Discovery Mode keeps the reaction immediate.
+Traditional development has too much friction for this. By the time you've written a spec, assigned the work, reviewed the PR, and deployed, you've forgotten what you were reacting to. Vibe Discovery keeps the reaction immediate.
 
 It also works because AI can interpret vague feedback. "Make it more fun" isn't actionable for a human developer without a long conversation about what "fun" means. But Claude can just try something - add obstacles, change mechanics, adjust physics - and I can react to the result. The conversation happens through prototypes, not words.
 
 ## The Interesting Implication
 
-Right now, Discovery Mode needs a human in the loop. Someone has to play the game and say "this feels sticky" or "the camera is weird." That's the bottleneck.
+Right now, Vibe Discovery needs a human in the loop. Someone has to play the game and say "this feels sticky" or "the camera is weird." That's the bottleneck.
 
 But that feedback could come from other sources:
 - Automated testing ("users drop off after 30 seconds")
@@ -159,4 +159,4 @@ I didn't outline the post. I discovered its structure by writing drafts and reac
 
 Everything here - game, deployment, blog post - was built on a Redmi Note 9 in Termux through conversation with Claude. The phone is incidental. The process is the point: when iteration is fast enough, you can build things you couldn't have specified upfront.
 
-Discovery Mode isn't about AI writing code faster. It's about finding out what you want by seeing what you don't want, one prototype at a time.
+Vibe Discovery isn't about AI writing code faster. It's about finding out what you want by seeing what you don't want, one prototype at a time.
