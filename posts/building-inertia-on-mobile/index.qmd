@@ -1,0 +1,277 @@
+---
+title: "Building Inertia: A WebGL Game Developed Entirely on a Phone"
+author: "kikkupico"
+date: "2026-01-11"
+categories: [gamedev, webgl, mobile, ai, javascript]
+image: "hero.png"
+---
+
+## The Challenge
+
+What if you could build a fully-featured WebGL game using nothing but a 4-year-old Android phone? No laptop, no desktop, just a Redmi Note 9 with 4GB RAM running Termux and Claude Code. That's exactly what I set out to do, and the result is [Inertia](https://kikkupico.github.io/inertia/) - a tilt-controlled 3D marble game with procedural terrain.
+
+![Inertia gameplay showing the ring-sphere player navigating 3D terrain](hero.png)
+
+## The Development Environment
+
+The entire game was built on:
+
+- **Hardware**: Redmi Note 9 (Android 12, 4GB RAM)
+- **Terminal**: Termux 0.118.1
+- **AI Assistant**: Claude Code (Sonnet 4.5)
+- **Version Control**: Git + GitHub CLI
+- **Server**: Python's http.server for live testing
+
+No external monitors, no keyboard, no mouse. Just a phone, a touchscreen, and conversational AI to handle the heavy lifting.
+
+## The Iterative Journey
+
+The game went through six major iterations before reaching its final form. Each version taught us something new about mobile game development and accelerometer controls.
+
+### Iteration 1: Cosmic Painter
+
+The first prototype was a particle-based art tool where tilting the phone controlled gravity. It was visually interesting but lacked gameplay depth.
+
+![Cosmic Painter - particle art with tilt-based gravity](cosmic-painter.png)
+
+**Verdict**: "Okay-ish" - needed actual game mechanics.
+
+### Iteration 2: Tilt Runner
+
+An endless runner where tilting dodged obstacles. This felt more like a real game with clear objectives and challenge.
+
+![Tilt Runner - endless runner with obstacles](tilt-runner.png)
+
+**Verdict**: "Much better" - but the user wanted something more complex with a different art style.
+
+### Iteration 3: Sky Garden
+
+An isometric puzzle game with switches, portals, and moving platforms. This introduced proper physics and spatial reasoning.
+
+![Sky Garden - isometric puzzle with physics](sky-garden.png)
+
+**Verdict**: Loved the isometrics and physics, but tilt controls were unintuitive.
+
+### Iteration 4: Marble Sandbox
+
+A forgiving sandbox environment with a clear tilt indicator to help understand controls. Built in isometric view with better visual feedback.
+
+![Marble Sandbox - isometric sandbox with tilt indicator](marble-sandbox.png)
+
+**Technical challenge**: The player marble was initially a plain object without update methods. Debugging on a phone screen revealed the issue quickly thanks to Claude's diagnostic approach.
+
+**Verdict**: Controls improved but needed better perspective for spatial awareness.
+
+### Iteration 5: Marble Chase
+
+A 3rd-person view marble game with intuitive controls. This version introduced:
+
+- **Calibration system**: The tilt angle at game start becomes the zero-velocity position
+- **Reduced sensitivity**: Required more deliberate tilting for movement
+- **Speed capping**: Prevented the marble from becoming uncontrollable
+
+![Marble Chase - 3rd person marble navigation](marble-chase.png)
+
+**Technical challenges solved**:
+- Forward/backward movement was initially flipped (fixed by negating tiltY)
+- Movement sensitivity required multiple adjustments (divisor tuning from 45 to 35)
+- Forward/backward felt "sticky" compared to left/right controls
+
+### Iteration 6: Inertia (Final)
+
+The final version combined everything learned with a complete visual overhaul:
+
+**Visual Design**:
+- Wireframe aesthetic with green gridlines on black background
+- Ring-sphere player (two orthogonal rings) that rotates with tilt
+- 3D terrain mesh with visible elevation changes
+- Golden diamond treasures
+
+**Technical Implementation**:
+
+```javascript
+// Procedural terrain using layered sine waves
+function noise(x, y) {
+    let value = 0;
+    value += Math.sin(x * 0.05) * Math.cos(y * 0.05) * 1.0; // Large hills
+    value += Math.sin(x * 0.1 + y * 0.08) * 0.6;             // Medium features
+    value += Math.sin(x * 0.2 + y * 0.15) * 0.3;             // Small ripples
+    return value;
+}
+
+function getTerrainHeight(x, y) {
+    return noise(x, y) * 2; // Height range: -5 to +5
+}
+```
+
+**Dynamic Camera System**:
+- Zooms out as speed increases (closer when slow, farther when fast)
+- Positioned behind player based on movement direction
+- Looks ahead at terrain elevation like a driver's perspective
+- Smooth interpolation for all camera movements
+
+```javascript
+// Camera follows terrain ahead
+const lookAtZ = getTerrainHeight(camera.lookAheadX, camera.lookAheadY);
+const target = [camera.lookAheadX, lookAtZ + 0.5, -camera.lookAheadY];
+```
+
+![Final Inertia game with dynamic camera and terrain](inertia-final.png)
+
+## Technical Challenges
+
+### Challenge 1: Canvas 2D Limitations
+
+Initial attempts used Canvas 2D with isometric projection. The terrain looked flat despite having elevation data because 2D rendering couldn't properly convey depth.
+
+**Solution**: Switched to WebGL with proper 3D rendering, perspective projection, and depth testing.
+
+### Challenge 2: Stationary Terrain Grid
+
+The terrain was regenerating every frame centered on the player, making it appear stationary relative to the camera.
+
+**Solution**: Snapped terrain generation to a fixed world grid:
+
+```javascript
+const snapSize = step * 4;
+const snappedOffsetX = Math.floor(offsetX / snapSize) * snapSize;
+const snappedOffsetY = Math.floor(offsetY / snapSize) * snapSize;
+```
+
+### Challenge 3: Ring Rotation Not Visible
+
+The player's ring-sphere wasn't rotating, making acceleration difficult to perceive.
+
+**Solution**: Rotated rings based on tilt input (not velocity):
+
+```javascript
+player.rotationX += tiltY * 0.1;
+player.rotationY += tiltX * 0.1;
+```
+
+### Challenge 4: Flat-Looking Terrain
+
+Despite having elevation data, the terrain appeared flat from the high camera angle.
+
+**Solution**:
+- Simplified noise function to remove double-scaling
+- Lowered camera height (from 8 to 4 units above player)
+- Adjusted camera angle to look more forward than down
+
+## The Mobile Development Experience
+
+### What Worked Well
+
+**Conversational Development**: Instead of typing out code on a touchscreen keyboard, I described what I wanted in natural language. Claude Code explored the codebase, made edits, and created commits.
+
+**Rapid Iteration**: Going from concept to working prototype took minutes, not hours. Each iteration built on the previous one's learnings.
+
+**Live Testing**: Python's http.server allowed instant testing on the same device. No deploy pipeline needed for development.
+
+**Version Control**: Git operations handled entirely through conversation. Claude created commits with proper messages and co-authorship attribution.
+
+### What Was Challenging
+
+**Debugging Visual Issues**: "The terrain looks flat" is harder to diagnose than a console error. Required multiple back-and-forth iterations to identify the camera angle issue.
+
+**Small Screen Limitations**: Viewing code diffs and understanding complex 3D transformations on a 6.53" screen required clear mental models.
+
+**Accelerometer Calibration**: Different devices and orientations made testing tricky. The calibration system (storing initial tilt as zero) solved this elegantly.
+
+## The Final Stack
+
+**Rendering**:
+- WebGL 1.0 (maximum compatibility)
+- Custom vertex and fragment shaders
+- Matrix math for 3D transformations (perspective, lookAt, rotation)
+
+**Game Logic**:
+- Device Orientation API with calibration
+- Velocity-based physics with friction
+- Slope physics (terrain gradient affects movement)
+- Simple collision detection for treasure collection
+
+**Development Tools**:
+- Claude Code for all code generation and editing
+- Git for version control
+- GitHub Pages for deployment
+- Python http.server for local testing
+
+## Performance
+
+On the Redmi Note 9:
+- Solid 60fps rendering
+- Smooth accelerometer response
+- No noticeable lag or frame drops
+- Terrain regeneration happens seamlessly
+
+The game runs on any device with WebGL support and device orientation API, including:
+- Modern smartphones (Android/iOS)
+- Tablets
+- Laptops with accelerometers
+- Desktop with arrow key controls as fallback
+
+## Deployment
+
+Deploying to GitHub Pages from the phone:
+
+```bash
+# Rename and organize files
+mv inertia.html index.html
+
+# Initialize repository
+git init
+git branch -m main
+git add .
+git commit -m "Initial commit: Inertia - WebGL tilt-based marble game"
+
+# Create public repo and push
+gh repo create inertia --public --source=. --remote=origin --push
+
+# Enable GitHub Pages
+gh api repos/kikkupico/inertia/pages -X POST \
+    -f source[branch]=main -f source[path]=/
+```
+
+The entire deployment process took under a minute.
+
+## Play It Now
+
+**Live Demo**: [https://kikkupico.github.io/inertia/](https://kikkupico.github.io/inertia/)
+
+**Source Code**: [https://github.com/kikkupico/inertia](https://github.com/kikkupico/inertia)
+
+The repository includes all six iterations, so you can see the evolution from simple particle painter to full 3D WebGL game.
+
+## Lessons Learned
+
+1. **Mobile development is viable**: With the right tools (AI assistants, terminal environments), a phone can be a legitimate development platform.
+
+2. **Iteration is key**: The final game was iteration 6. Each version taught us something that informed the next design.
+
+3. **WebGL on mobile is powerful**: Modern phones have impressive GPU capabilities. WebGL unlocks them for web games.
+
+4. **Calibration matters**: For accelerometer games, letting users calibrate at game start is essential for good UX.
+
+5. **Camera perspective sells the experience**: The dynamic camera that zooms with speed and follows terrain elevation transformed the game feel.
+
+6. **AI-assisted development shines on mobile**: The conversational interface eliminates touchscreen typing as a bottleneck.
+
+## What's Next?
+
+Potential enhancements for Inertia:
+
+- Procedural treasure placement based on terrain features
+- Multiple difficulty levels with varying terrain complexity
+- Leaderboard integration
+- Sound effects and haptic feedback
+- Progressive terrain loading for infinite worlds
+- Multiplayer ghost racing
+
+But for now, Inertia stands as proof that you don't need a powerful desktop workstation to build compelling WebGL games. You just need curiosity, persistence, and the right tools.
+
+---
+
+*This entire project - from first prototype to deployed game to this blog post - was created on a Redmi Note 9 running Termux and Claude Code. Total development time: approximately 3 hours across one evening.*
+
+*Try the game on your phone and see what an old Android device can create!*
