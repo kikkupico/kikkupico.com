@@ -3,3 +3,11 @@ title: "About"
 ---
 
 I am Ram. I like creating things.
+
+<p>
+<script>
+  var name = "kikkupico";
+  var domain = "gmail.com";
+  document.write('You can reach me at: <a href="mailto:' + name + '@' + domain + '">' + name + '@' + domain + '</a>');
+</script>
+</p>
