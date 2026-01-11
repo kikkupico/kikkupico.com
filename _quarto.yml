@@ -27,9 +27,9 @@ format:
       - custom.scss
     include-in-header:
       - text: |
-          <link rel="icon" href="favicon/favicon.ico" sizes="any">
-          <link rel="icon" href="favicon/favicon-32x32.png" type="image/png">
-          <link rel="icon" href="favicon/favicon-16x16.png" type="image/png">
+          <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+          <link rel="icon" href="/favicon/favicon-32x32.png" type="image/png">
+          <link rel="icon" href="/favicon/favicon-16x16.png" type="image/png">
 
 
 

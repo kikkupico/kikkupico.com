@@ -3,7 +3,7 @@ title: "Vibe Discovery: I Built a Mobile Game on an Old Phone Without Knowing Wh
 author: "kikkupico"
 date: "2026-01-11"
 categories: [ai, product-development, gamedev, webgl]
-image: "hero.png"
+image: "https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/hero.jpg"
 ---
 
 ## The Starting Point
@@ -12,7 +12,7 @@ image: "hero.png"
 
 That was the entire spec. No wireframes, no design doc, no feature list. I typed this into Claude Code running on my Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Three hours later, I had [Inertia](https://kikkupico.github.io/inertia/) - a WebGL marble game with procedural terrain and dynamic camera. The interesting part isn't the game itself. It's that I didn't know I was building a marble game until iteration 4.
 
-![Inertia gameplay showing the ring-sphere player navigating 3D terrain](hero.png)
+![Inertia gameplay showing the ring-sphere player navigating 3D terrain](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/hero.jpg)
 
 ## This Isn't Vibe Coding
 
