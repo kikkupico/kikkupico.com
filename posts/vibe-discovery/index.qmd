@@ -3,7 +3,7 @@ title: "Vibe Discovery: I Built a Mobile Game on an Old Phone Without Knowing Wh
 author: "kikkupico"
 date: "2026-01-11"
 categories: [ai, product-development, gamedev, webgl]
-image: "https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/hero.jpg"
+image: "https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/hero.webp"
 ---
 
 ## The Starting Point
@@ -12,7 +12,7 @@ image: "https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/hero
 
 That was the entire spec. No wireframes, no design doc, no feature list. I typed this into Claude Code running on my Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Three hours later, I had [Inertia](https://kikkupico.github.io/inertia/) - a WebGL marble game with procedural terrain and dynamic camera. The interesting part isn't the game itself. It's that I didn't know I was building a marble game until iteration 4.
 
-![Inertia gameplay showing the ring-sphere player navigating 3D terrain](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/hero.jpg)
+![Inertia gameplay showing the ring-sphere player navigating 3D terrain](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/inertia.webp)
 
 ## This Isn't Vibe Coding
 
@@ -33,13 +33,9 @@ In Vibe Discovery, you're not directing - you're *reacting*. Each prototype teac
 
 ## The Setup
 
-![Termux running Claude Code on a phone screen](termux-setup.png)
+![Termux running Claude Code on a phone screen](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/claude.webp)
 
-The whole thing ran on a Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Termux for the terminal, Claude Code for the AI, Node.js http-server for testing, GitHub for deployment.
-
-![Claude Code terminal interface showing the development session](claude-interface.png)
-
-The phone isn't the point. The point is that the entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Vibe Discovery work.
+The whole thing ran on a Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Termux for the terminal, Claude Code for the AI, Node.js http-server for testing, GitHub for deployment. The phone isn't the point. The point is that the entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Vibe Discovery work.
 
 ## Six Iterations, Six Discoveries
 
@@ -50,42 +46,42 @@ Here's how requirements emerged from nothing:
 → I try it: "Okay-ish. Not really a game though."
 → **Discovered**: I want gameplay, not just visuals
 
-![Cosmic Painter](cosmic-painter.png)
+![Cosmic Painter](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/cosmic-painter.webp)
 
 **Iteration 2**: "Something more fun"
 → Endless runner with tilt controls
 → "Better! But I want something more complex"
 → **Discovered**: I like objectives, want more depth
 
-![Tilt Runner](tilt-runner.png)
+![Tilt Runner](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/tilt-runner.webp)
 
 **Iteration 3**: "More complicated, different art style"
 → Isometric puzzle game with physics
 → "Love the physics, but the tilt controls are confusing"
 → **Discovered**: Good mechanics can't overcome bad feedback
 
-![Sky Garden](sky-garden.png)
+![Sky Garden](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/sky-garden.webp)
 
 **Iteration 4**: "Keep the physics, make controls intuitive"
 → Sandbox with tilt indicator
 → "The indicator works but the perspective is wrong"
 → **Discovered**: I want a marble game with 3rd-person view
 
-![Marble Sandbox](marble-sandbox.png)
+![Marble Sandbox](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/marble-sandbox.webp)
 
 **Iteration 5**: "3rd person marble game"
 → Marble game with calibration system
 → "Close! Controls are too sensitive, movement feels sticky"
 → **Discovered**: Fine-tuning matters more than features
 
-![Marble Chase](marble-chase.png)
+![Marble Chase](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/marble-chase.webp)
 
 **Iteration 6**: "Make it beautiful, show acceleration visually"
 → Wireframe game with procedural terrain
 → "Terrain looks flat, camera should follow like driving"
 → **Discovered**: Need WebGL for proper 3D, dynamic camera sells the experience
 
-![Final Inertia game](inertia-final.png)
+![Final Inertia game](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/inertia.webp)
 
 Notice what happened: the final product (WebGL marble game with ring-sphere player and dynamic camera) wasn't anywhere in my head at the start. Each feature emerged from reacting to the previous prototype. "The terrain looks flat" led to WebGL. "Can't tell which way I'm accelerating" led to the ring-sphere design. "Camera feels static" led to the dynamic look-ahead system.
 
@@ -153,7 +149,7 @@ This post went through the same process. First draft focused on technical detail
 
 I didn't outline the post. I discovered its structure by writing drafts and reacting to them.
 
-![Editing this post in Termux](editing-blog-post.png)
+![Editing this post in Termux](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/editing-blog-post.webp)
 
 ---
 
