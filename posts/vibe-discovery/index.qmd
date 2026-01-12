@@ -37,6 +37,24 @@ In Vibe Discovery, you're not directing - you're *reacting*. Each prototype teac
 
 The whole thing ran on a Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Termux for the terminal, Claude Code for the AI, Node.js http-server for testing, GitHub for deployment. The phone isn't the point. The point is that the entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Vibe Discovery work.
 
+## Why Not Just Use v0, Lovable, or Cloud Agents?
+
+You might ask: "Why hack around in a terminal on a tiny screen when tools like Lovable, v0, or Bolt.new exist?"
+
+It comes down to one thing: **Environment Ownership**.
+
+Web-based generators are incredible, but they are "Sandboxed Gardens." They own the runtime. If you want to run a custom Python script to generate sound assets, use a specific linter, or pipe a log file into a debugger, you can't. You are limited to the tools they built into their UI.
+
+Cloud-based agents (like Jules or browser-based IDEs) often suffer from the "Git Anchor" problem. To maintain state between sessions, they usually require you to attach to a GitHub repository immediately. The "Vibe Discovery" phase is messy; I don't want to pollute my commit history with 50 failed experiments just to keep the AI from forgetting what we built five minutes ago.
+
+**Termux + Agent is different:**
+
+- **I own the runtime:** I can open `neovim` to tweak a config file manually while the AI is thinking. I can run `htop` to see why the server is lagging.
+- **Tooling Freedom:** The AI isn't stuck in a browser tab. It has access to the actual OS. If I want it to use `gh cli` to create a PR or run a local script, it just does it.
+- **Local First:** The state lives on my device, not in a temporary cloud container that might time out.
+
+In short: Generators give you a fish. Local Agents give you a fishing rod, a boat, and the entire ocean.
+
 ## Six Iterations, Six Discoveries
 
 Here's how requirements emerged from nothing:
@@ -327,6 +345,12 @@ This post went through the same process. First draft focused on technical detail
 I didn't outline the post. I discovered its structure by writing drafts and reacting to them.
 
 ![Editing this post in Termux](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/editing-blog-post.webp)
+
+## What's Next?
+
+This experiment wasn't just for fun. It was a stress test for a much bigger project.
+
+I am currently building **"The Man and the Apple"** with a rather picky collaborator - my 6 year old daughter. Stay tuned!
 
 ---
 
