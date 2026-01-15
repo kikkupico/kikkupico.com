@@ -129,7 +129,7 @@ Here's how requirements emerged from nothing:
 ::: {.columns}
 
 ::: {.column width="50%"}
-**Iteration 5**: "3rd person marble game"
+**Iteration 5**: "3rd-person marble game"
 → Marble game with calibration system
 → "Close! Controls are too sensitive, movement feels sticky"
 → **Discovered**: Fine-tuning matters more than features
@@ -314,9 +314,16 @@ But that feedback could come from other sources:
 - Analytics ("no one uses feature X")
 - Simulated users ("agent reports confusion at step 3")
 
-The pieces exist: AI that codes, systems that deploy, tools that measure. What's missing is the orchestration layer that ties them together.
+The pieces exist: AI that codes, systems that deploy, tools that measure. What's missing is the orchestration layer that ties them together. Such an orchestrator would also ensure that the feedback loop isn't tightly fit to one person's taste.
 
-I'm not making predictions about when or whether this happens. I'm just noting that the workflow I ran manually - generate, test, analyze feedback, iterate - doesn't inherently require a human at every step. The human provided taste and judgment, but a lot of that feedback was mechanical: "this is broken," "this is slow," "this doesn't respond to input."
+## What's Next? Reality Check
+
+Now that I've indulged my prophetic streak, it's time for a reality check. Next, I'll be putting Vibe Discovery to test along two different dimensions -
+
+1. Taking over "Inertia" and refining it by hand.
+2. Vibe discovering with a rather picky co-creator - my 6-year-old daughter - as we collaborate with AI for building a game called "Man and the Apple".
+
+These adventures will be the subject of subsequent blog posts. Stay tuned!
 
 ## Technical Notes
 
@@ -344,17 +351,3 @@ npm install -g @anthropic-ai/claude-code
 claude
 # Start with a vague idea. See what emerges.
 ```
-
-## The Meta
-
-This post went through the same process. First draft focused on technical details. Feedback: "emphasize the methodology, not the game." Second draft was repetitive. Feedback: "tighten it up, explain how it differs from vibe coding." Third draft landed here.
-
-I didn't outline the post. I discovered its structure by writing drafts and reacting to them.
-
-![Editing this post in Termux](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/editing-blog-post.webp)
-
-## What's Next?
-
-This experiment wasn't just for fun. It was a stress test for a much bigger project.
-
-I am currently building **"The Man and the Apple"** with a rather picky collaborator - my 6 year old daughter. Stay tuned!
