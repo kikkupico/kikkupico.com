@@ -35,7 +35,7 @@ In Vibe Discovery, you're not directing - you're *reacting*. Each prototype teac
 
 ![Termux running Claude Code on a phone screen](https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/claude.webp)
 
-The whole thing ran on a Redmi Note 9 - a 4-year-old Android phone with 4GB RAM. Termux for the terminal, Claude Code for the AI, Node.js http-server for testing, GitHub for deployment. The phone isn't the point. The point is that the entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Vibe Discovery work.
+The whole thing ran on a Redmi Note 9 - a 5-year-old basic Android phone with 4GB RAM. Termux for the terminal, Claude Code for the AI, Node.js http-server for testing, GitHub for deployment. The entire feedback loop - build, test, react, iterate - happened in seconds on a single device. That speed is what makes Vibe Discovery work.
 
 ### Why the Phone?
 
@@ -54,7 +54,7 @@ It comes down to one thing: **Environment Ownership**.
 
 Web-based generators are incredible, but they are "Sandboxed Gardens." They own the runtime. If you want to run a custom Python script to generate sound assets, use a specific linter, or pipe a log file into a debugger, you can't. You are limited to the tools they built into their UI.
 
-Cloud-based agents (like Jules or browser-based IDEs) often suffer from the "Git Anchor" problem. To maintain state between sessions, they usually require you to attach to a GitHub repository immediately. The "Vibe Discovery" phase is transient; I don't want to create a repo on Github just to get started. 
+Cloud-based agents (like Jules or browser-based IDEs) often suffer from the "Git Anchor" problem. To maintain state between sessions, they usually require you to attach to a GitHub repository immediately. The "Vibe Discovery" phase is transient; I don't want to create a repo on Github just to get started. Moreover, Jules and Claude Code Web are in the 'research preview' phase and they don't always work as expected.
 
 **Termux + Agent is different:**
 
