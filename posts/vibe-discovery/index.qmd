@@ -44,6 +44,8 @@ You might ask: "Why not just do this on a laptop?"
 1.  **Sensor Loop:** I was building a game that relies on the accelerometer. Developing on a laptop would mean a painful "Code → Deploy → Pick up phone → Test" loop. Coding directly on the device meant the dev environment *was* the test environment.
 2.  **The "Lying Down" Factor:** This is purely subjective, but my ideas flow differently when I'm lying down. It puts me in a "tinkering" mindset rather than a "working" mindset. A laptop forces you to sit up and be productive. A phone lets you relax and discover.
 
+One caveat: Termux isn't compatible with Android's voice typing feature. If you want to use voice input, you need to voice-type into a notes app and paste into Termux. It's an extra step, but workable. On the flip side, editing text in vim mode is surprisingly efficient on a phone keyboard - the modal editing paradigm actually works well with touch input.
+
 ### Why Not Just Use v0, Lovable, or Cloud Agents?
 
 You might ask: "Why hack around in a terminal on a tiny screen when tools like Lovable, v0, or Bolt.new exist?"
@@ -52,7 +54,7 @@ It comes down to one thing: **Environment Ownership**.
 
 Web-based generators are incredible, but they are "Sandboxed Gardens." They own the runtime. If you want to run a custom Python script to generate sound assets, use a specific linter, or pipe a log file into a debugger, you can't. You are limited to the tools they built into their UI.
 
-Cloud-based agents (like Jules or browser-based IDEs) often suffer from the "Git Anchor" problem. To maintain state between sessions, they usually require you to attach to a GitHub repository immediately. The "Vibe Discovery" phase is messy; I don't want to pollute my commit history with 50 failed experiments just to keep the AI from forgetting what we built five minutes ago.
+Cloud-based agents (like Jules or browser-based IDEs) often suffer from the "Git Anchor" problem. To maintain state between sessions, they usually require you to attach to a GitHub repository immediately. The "Vibe Discovery" phase is transient; I don't want to create a repo on Github just to get started. 
 
 **Termux + Agent is different:**
 
@@ -340,6 +342,8 @@ The repository includes all six iterations as separate HTML files, so you can se
 ## Try It
 
 **Play**: [https://kikkupico.github.io/inertia/](https://kikkupico.github.io/inertia/)
+
+(On a laptop, you can still play the game using the arrow keys. Of course, the controls will be much less intuitive than tilt controls on a phone.)
 
 **Code**: [https://github.com/kikkupico/inertia](https://github.com/kikkupico/inertia)
 
