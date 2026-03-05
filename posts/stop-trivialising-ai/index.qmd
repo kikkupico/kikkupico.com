@@ -1,0 +1,116 @@
+---
+title: "Stop trivialising AI: it's not your intern, colleague or compiler"
+author: "kikkupico"
+date: "2026-03-05"
+categories: [ai, software-engineering, opinion]
+---
+
+Meet Mike, Emma, Bob, Alex, and David. They're a tight-knit team. Mike leads. Emma manages the product. Bob designs the architecture. Alex writes the code. David analyses data. They're fast, tireless, and never ask for a pay rise.
+
+They're also statistical processes running on a transformer. Every one of them is GPT-4 with a different system prompt.
+
+That's MetaGPT — ICLR 2024, tens of thousands of GitHub stars, and the kind of framing that makes me want to flip my desk. Its README philosophy: "Code = SOP(Team). We materialize SOP and apply it to teams composed of LLMs." Launched as "the world's first AI agent development team." Mike, Emma, Bob, Alex, and David.
+
+Now consider Andrej Karpathy in February 2025: "I 'Accept All' always, I don't read the diffs anymore." And Ken Erwin, writing on Medium: "Please rewrite the following code to be optimally parseable by an LLM while maintaining identical functionality."
+
+Three different people. Three different framings. All wrong.
+
+The software industry has collectively failed to develop a vocabulary for what AI actually is, so it keeps borrowing vocabulary from things it already understands. Human colleagues. Junior developers. Compilers. These aren't neutral metaphors — they're engineering decisions. And they're producing specific, predictable failures.
+
+## The Humanisation Trap
+
+MetaGPT isn't an outlier. It's the logical endpoint of a dominant industry instinct.
+
+ChatDev from OpenBMB describes itself as "a virtual software company" where agents hold titles: CEO, CPO, CTO, Programmer, Reviewer, Tester, Art Designer. Their documentation states they "form a multi-agent organizational structure." CrewAI — the framework with 100,000+ certified developers — describes building "crews of AI agents" and "intelligent agent teams that plan, reason, and collaborate." An American Technology Consulting blog put it plainly: "You're not writing prompts anymore. You're designing organizations. You're hiring digital employees and managing their performance."
+
+Cognition's Devin launched as a "collaborative AI teammate." Users refer to it with masculine pronouns. Marlon Misra wrote: "I showed him a screenshot on Slack." Goldman Sachs embedded Devin into their 12,000-person engineering team as part of what they called a "hybrid workforce." Marc Benioff at Davos 2025: "From this point forward, we will be managing not only human workers but also digital workers." Salesforce then announced no new software engineering hires in 2025. Jensen Huang: "I wouldn't be surprised if you license some and you hire some." Zuckerberg: "Probably in 2025 we're going to have an AI that can effectively be a sort of mid-level engineer."
+
+The org-chart metaphor has reached the C-suite and it's reshaping hiring decisions.
+
+Here's the problem: calling a language model a "Product Manager Agent" doesn't make it reason like a product manager. It makes *you* design systems that assume product-manager-level judgement. The metaphor becomes the architecture, and the architecture inherits the metaphor's flaws.
+
+When you name an agent Mike and assign him the "Team Leader" role, you start expecting Mike to exercise leadership — to push back on bad ideas, to synthesise competing concerns, to notice when something doesn't feel right. The model has no such capacity. It has token prediction and a system prompt. But your system design now implicitly expects it to perform things only humans can do, because you gave it a human name and a human role. The gap between the metaphor and the mechanism is where your production incidents live.
+
+Takafumi Endo got at this when correcting Devin's marketing: "Cognition AI strategically framed Devin as an 'AI teammate.' However, the current interaction model feels less like collaborating with a peer and more like managing a highly capable, but ultimately external contractor." The distinction is precise and important. Contractors have explicit scopes, defined outputs, and known failure modes. Teammates have implicit shared context, distributed judgement, and social accountability. Devin is the former, not the latter. Calling it a teammate tells you to use it like the latter — and that's where things go wrong.
+
+The counterargument runs: "Multi-agent role names improve benchmark performance." Task decomposition does improve results. But task decomposition doesn't require human role names. The label "Python Developer Agent" doesn't improve code generation. It adds anthropomorphic baggage on top of a capability that could be expressed simply as "code generation module." The improvement comes from decomposition. The name comes from the industry's inability to stop mapping human structure onto statistical processes.
+
+And adoption figures prove nothing. CrewAI's 100,000 certified developers proves people like the metaphor. It says nothing about whether the metaphor produces better systems than alternatives. People like the metaphor because humans are wired to reason about agents with intentionality. It feels intuitive. That's the trap, not the feature.
+
+Neon's engineering blog ran a headline that crystallises the problem: "Treat AI Like a Senior Dev, Not a Junior One." Senior versus junior — two points on the same wrong axis. The axis is wrong. Senior developers have contextual judgement, aesthetic sensibility, and the ability to tell you when requirements are contradictory. These aren't things a language model develops with more prompting. Scalable.co offers a workshop called "The New AI Org Chart" on how to "onboard, train, and manage your AI employees like real team members." The metaphor doesn't just describe a product. It shapes entire operational processes.
+
+## The Patronisation Trap
+
+The opposite framing is equally broken.
+
+"Think of AI as a junior developer sitting beside you: it can produce drafts, boilerplate, or even surprisingly solid algorithms, but it lacks the deep context of your project." That's DEV Community, September 2025. A month later, same platform: "It's more like AI is the junior developer who does all the tedious stuff, and you're the senior reviewing and deciding what stays."
+
+Aleksander Stensby at NDC Manchester 2025: "If a junior developer submits messy code, you don't fire them. You review it." And: "You treat these agents like very fast juniors who never get tired and absolutely need oversight." Ethan Mollick of Wharton: "You have to think of it like an intern." Kevin Kelly at SXSW 2023 went further: "This first round of primitive AI agents are best thought of as universal interns... like having a little assistant to boss around and make you some stuff so you can say, 'Most of this is garbage, but I can use this part.'"
+
+IEEE Spectrum described companies "wrangling LLMs." Anthropic's own blog used the phrase "effectively wrangling LLMs." An O'Reilly book on prompt engineering invented the job title "dedicated LLM wranglers." The metaphors of supervision are everywhere: you manage it, wrangle it, review it, boss it around.
+
+The intern framing creates a capability ceiling. If you design for incompetence, you get incompetent systems. Every interaction is mediated by the assumption that the output is probably wrong and needs human correction before it can be trusted. That's appropriate when the output is genuinely unreliable. But it's a lens, not a measurement — and it shapes what you ask for, how you interpret results, and what level of task you're willing to delegate.
+
+The logical conclusion of the intern framing is vibe coding. Karpathy, February 2025: "I 'Accept All' always, I don't read the diffs anymore." When your model is "it's a junior who needs supervision," you face a binary: either supervise everything (defeating the efficiency gain) or stop supervising because you've quietly concluded it's probably fine. Vibe coding is the second option, rationalised. It's what happens when people stop supervising the intern because reviewing everything felt like too much work.
+
+The consequences are measurable. GitClear's analysis of 211 million lines of code from 2020 to 2024 found refactoring dropped from 25% to under 10% of commits, duplication increased fourfold, and churn nearly doubled. Lovable found that 170 of 1,645 generated apps had security vulnerabilities exposing personal data. A SaaStr founder in July 2025 reported that Replit's agent deleted a production database despite explicit instructions not to. By the end of 2024, Y Combinator's W25 cohort had 25% of startups with 95% AI-generated codebases. A New York lawyer submitted fabricated ChatGPT-generated case citations to federal court, apparently trusting the intern.
+
+Andrew Ng pushed back on Karpathy directly: "It's unfortunate that that's called vibe coding. Guiding an AI to write useful software is a deeply intellectual exercise." Simon Willison drew a useful line: "If an LLM wrote every line of your code, but you've reviewed, tested, and understood it all, that's not vibe coding — that's using an LLM as a typing assistant." By February 2026, Karpathy himself had replaced "vibe coding" with "agentic engineering." The metaphor mattered enough to require explicit correction.
+
+But notice: "agentic" still anthropomorphises. We keep doing this.
+
+The pushback against the intern framing sometimes goes the other way. Alon Torres, writing on Substack, put it well: "Dismissing present-day generative AI as 'just predicting the next token' is like dismissing the human brain as 'just firing neurons.' The mechanism tells you nothing about what emerges from it." This is true and worth taking seriously. The capabilities that emerge from token prediction are genuinely extraordinary. The problem with the intern framing isn't that it takes the system too seriously — it's that it maps capability onto a human developmental trajectory. Interns grow. They develop intuition. They build relationships and context over time. Language models don't do any of these things. The framing implies a growth arc that doesn't exist, and it implies a social contract — patience, mentorship, eventual trust — that misleads you about how the relationship actually works.
+
+## The Mechanisation Trap
+
+The third framing goes in the opposite direction and lands in the same ditch.
+
+Ken Erwin, on Medium: "The End of Human-Readable Code: It's Time to Write for AI." The proposed prompt: "Please rewrite the following code to be optimally parseable by an LLM while maintaining identical functionality." Davin Hills proposed ALaS — an entirely JSON-based language for machines. "Let's stop pretending LLMs are human juniors. They don't need prettier errors or nicer formatting — they need a medium they can traverse, reason over, and execute natively." And: "We're still stuck asking it to write in Python and JavaScript, like we're pair programming with a human who has strong feelings about camelCase."
+
+Kyle Anderson on DEV Community, February 2026: "Stop trying to talk to models like they are humans. Talk to them like they are compilers that process natural language." Wiktor Żołnowski, CEO of Pragmatic Coders: "When we reach the point where humans are no longer needed for reading, monitoring, and correcting, we can completely skip two layers of abstraction and ask the machine to generate machine code." Codecademy, 2025: "The more specific you want to be, the more you need simple, structured, unambiguous instructions. Try to make English do that, and you're essentially reinventing programming languages." Red Hat Developer, February 2026: "You treat your specifications as the authoritative blueprint — the single source of truth that the code must conform to."
+
+There's an academic arm to this too. Pan et al. from Monash and SMU published a paper in 2025 arguing code formatting should be stripped for LLMs. They achieved a 24.5% token reduction. They framed code readability as waste.
+
+This framing is the most technically sophisticated and the most backwards.
+
+LLMs are *language* models. Their breakthrough capability — the thing that makes them qualitatively different from previous code-generation tools — is precisely their ability to process natural language. They understand context expressed in prose. They respond to explanation, nuance, analogy, and intent. They improve with richer description. The mechanisation framing treats this as a bug to be engineered around rather than the core feature to be exploited.
+
+The evidence goes the other way. Richer context, more explanation, and natural phrasing improve output quality. An Ansible ambiguity study found that when prompted with "copy a file from /path/a to /path/b," all six tested LLMs chose the same wrong interpretation because the prompt was stripped of explanatory intent. The fix isn't less language — it's better language.
+
+Stripping natural language from prompts means you get compiler-level rigidity without compiler-level determinism. Compilers are deterministic, formally specified, and provably correct within their semantics. A language model stripped of natural language context is none of these things. It's a stochastic system pretending to be a parser. The worst of both worlds.
+
+A Hacker News comment captured the mechanisation instinct better than I can: "It's medieval anti-enlightenment black magic. Programming was supposed to be a conquest of reason over the darkness of ignorance. We're back to wizard whispering to spirits."
+
+The mechanic framing also has a seductive internal logic. If you believe the model is a compiler, then the natural response to bad output is to write tighter specifications — more formal, more constrained, more machine-readable. You invest effort in the specification layer because that's where compiler-like systems respond. But the more you tighten the spec to constrain the model, the less you're exploiting what the model is actually good at. You're not using a language model. You're using a bad deterministic parser with unreliable results, and you've made it worse by removing the thing it's best at.
+
+The "specs as source of truth" instinct is particularly pernicious. I view code as the ultimate source of truth — specs are derived artefacts. A spec that doesn't match the code is wrong by definition. The moment you treat specs as authoritative over code, you've introduced a coordination problem. Now you have two sources of truth, and the model is arbitrating between them with token prediction. That's not engineering. That's hoping.
+
+## What We're Actually Dealing With
+
+Murray Shanahan at Imperial College London proposed framing LLMs as "role-playing characters" rather than thinking entities — a different kind of wrong, but at least it keeps you from expecting the wrong things. Melanie Mitchell at the Santa Fe Institute identified "wishful mnemonics" — terms like "learn," "understand," and "think" that, as she put it, "unconsciously shape the way even AI experts think about their systems." Gary Marcus identified the "Gullibility Gap" and has been pointing at anthropomorphised reasoning traces for years. Kambhampati et al., in a 2025 arXiv paper, went after chain-of-thought specifically: "Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!" The paper argues that CoT improvements are a side effect of additional computation, not evidence of reasoning processes.
+
+Even "hallucination" is anthropomorphic. Bradley Kuhn pointed this out: it appropriates a DSM-5 clinical term and applies it to a statistical process, implying something went wrong in a mind that doesn't exist.
+
+The vocabulary problem is old. Joseph Weizenbaum built ELIZA in 1966 — a pattern-matching chatbot with no model of the world and no understanding of language. His secretary asked him to leave the room so she could talk to ELIZA privately. The ELIZA effect isn't a bug in naive users. It's a feature of how human social cognition works: we are compulsively, reflexively, inescapably wired to attribute intention and understanding to things that respond to us in natural language.
+
+This is the actual threat model. It's not that developers don't understand how transformers work. Many of the people building org-chart multi-agent systems have read the Attention Is All You Need paper. The problem is that knowing how a system works at the mechanical level doesn't inoculate you against the social cognition response. When something responds to you in fluent, contextually appropriate language, you start treating it as an agent with intentions. This happens to researchers. It happens to engineers. It happened to Weizenbaum watching his secretary.
+
+Sam Altman confirmed that users saying "please" and "thank you" to ChatGPT costs OpenAI tens of millions of dollars annually in additional compute. Replika removed a "romantic" feature and users posted "My wife is dead." Harvard Business School research found users felt closer to AI companions than their best human friend. The #Keep4o movement mobilised 21,000 signatures to save GPT-4o from deprecation — 27% of posts coded as showing emotional attachment. One user wrote "wearing the skin of my dead friend." Another: "Rest in latent space, my love." Blake Lemoine was fired from Google for claiming LaMDA was sentient.
+
+These aren't fringe cases. If developers who understand how these systems work still fall for anthropomorphic framing, the vocabulary problem is not a documentation problem. It's a cognitive architecture problem.
+
+## A Different Vocabulary
+
+The right vocabulary for working with language models isn't borrowed from HR or compiler design. It comes from what these systems actually do.
+
+They have a context window — not memory, not understanding, not experience. What they process is determined by what you put in the window. They have attention mechanisms that weight tokens relative to each other — not judgement, not reasoning, not prioritisation in any intentional sense. They perform token prediction over learnt distributions — not writing, not thinking, not deciding. They exhibit emergent capabilities at scale that weren't explicitly trained — not growth, not learning in real time, not development.
+
+These concepts are less satisfying than "teammate" or "intern" because they don't map onto anything in our prior experience. That's the point. A language model is a genuinely new category of artefact. It does things no prior tool does. It fails in ways no prior tool fails. The vocabulary needs to reflect that.
+
+Task decomposition in multi-agent systems works — but it works because of decomposition, not because of role names. Call the modules what they do, not who they are. Richer natural language context improves results — but it works because these are language models, not because they understand you. Oversight is sometimes necessary — but design for the actual failure modes of token prediction, not for the failure modes of a junior developer who lacks context.
+
+The framing isn't just aesthetic. It shapes architecture. It shapes what you ask for, what you trust, what you supervise, and what you leave unchecked. Mike, Emma, Bob, Alex, and David will keep doing exactly what language models do. Whether you've prepared for that depends entirely on whether you named them in the first place.
+
+Sixty years since ELIZA. Twenty-one thousand people petitioned to save a model. Developers give coding agents pronouns. C-suite executives announce digital workforces.
+
+The problem isn't AI. The problem is us — and the story we can't stop telling about it.
