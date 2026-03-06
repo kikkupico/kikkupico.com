@@ -3,15 +3,14 @@ title: "Stop trivialising AI: it's not your intern, colleague or compiler"
 author: "kikkupico"
 date: "2026-03-05"
 categories: [ai, software-engineering, opinion]
+image: "https://storage.googleapis.com/kikkupico-com-storage/stop-trivialising-ai/stop-trivialising-ai.webp"
 ---
 
-The software industry built something genuinely new, and then immediately started calling it by the wrong name. Everything that followed was predictable.
-
-["I 'Accept All' always, I don't read the diffs anymore."](https://x.com/karpathy/status/1886192184808149383) That's Andrej Karpathy in February 2025 — former Director of AI at Tesla, OpenAI co-founder, one of the handful of people alive who helped design the systems he just admitted to not reviewing.
+The software industry built something genuinely new, and then immediately started calling it by the wrong name. Not suprising, because "naming things" is the [second hardest problem](https://martinfowler.com/bliki/TwoHardThings.html) in computer science.
 
 The metaphors we use to describe AI are not neutral shorthand. At best, they're inaccurate. At worst, they reveal more about the insecurities of the people using them than about the capabilities of the systems being described. Pick the wrong framing and you don't just misunderstand the tool — you tell us something about what you're afraid of.
 
-Three traps. Each belongs to a different professional tribe. Each performs a different anxiety.
+Let's examine three traps. Each belongs to a different professional tribe. Each performs a different anxiety.
 
 ## The Patronisation Trap
 
@@ -33,13 +32,13 @@ The intern framing creates a capability ceiling. If you design for incompetence,
 
 Notice what the correction didn't do: it still anthropomorphises. The habit is load-bearing.
 
-The [Alon Torres response](https://alont.substack.com/p/the-stochastic-parrot-fallacy) is worth taking seriously: "Dismissing present-day generative AI as 'just predicting the next token' is like dismissing the human brain as 'just firing neurons.'" True. The problem with the intern framing isn't that it takes the system too seriously — it's that it maps capability onto a human developmental trajectory. Interns grow. Language models don't. The framing implies a growth arc that doesn't exist, and a social contract — patience, mentorship, eventual trust — that misleads you about how the relationship actually works. It also implies that the senior engineer's status is safe, that accumulated judgement and experience remain decisive, that the intern will never become more than an intern. Whether or not that's true is an empirical question. The framing forecloses it.
+The problem with the intern framing isn't that it takes the system too seriously — it's that it maps capability onto a human developmental trajectory. Interns grow. Language models don't. The framing implies a growth arc that doesn't exist, and a social contract — patience, mentorship, eventual trust — that misleads you about how the relationship actually works. It also implies that the senior engineer's status is safe, that accumulated judgement and experience remain decisive, that the intern will never become more than an intern. Whether or not that's true is an empirical question. The framing forecloses it.
 
 ## The Humanisation Trap
 
 If AI is a junior developer, why not give it a proper team? Why not give it a name, a title, a reporting structure? Why not build the whole org?
 
-This is a trap for a specific professional: the engineering leader. Not the engineer — the manager. The person whose LinkedIn reads "Engineering Director" or "VP of Engineering" or "Head of People and Technology," and whose value proposition was, explicitly, people: hiring, motivating, growing, retaining. The person who made careers from knowing how humans in technical teams behave.
+This is a trap for a specific professional: the engineering manager. The person whose LinkedIn reads "Engineering Leader", and whose value proposition was, explicitly, people: hiring, motivating, growing, retaining. The person who made careers from knowing how humans in technical teams behave.
 
 Now the "team" is GPT-4 with different system prompts.
 
@@ -57,7 +56,7 @@ Calling a language model a "Product Manager Agent" doesn't make it reason like a
 
 [Takafumi Endo](https://medium.com/@takafumi.endo/agent-native-development-a-deep-dive-into-devin-2-0s-technical-design-3451587d23c0) got at this when correcting Devin's marketing: "The current interaction model feels less like collaborating with a peer and more like managing a highly capable, but ultimately external contractor." Contractors have explicit scopes, defined outputs, and known failure modes. Teammates have implicit shared context, distributed judgement, and social accountability. Devin is the former. Calling it a teammate tells you to use it like the latter — and that's where things go wrong.
 
-The counterargument runs: multi-agent role names improve benchmark performance. Task decomposition does improve results. But decomposition doesn't require human role names. The improvement comes from decomposition. The names come from an industry that can't stop mapping human structure onto statistical processes — and from a professional class that needs the mapping to survive.
+The counterargument says multi-agent role names improve benchmark performance. Task decomposition does improve results. But decomposition doesn't require human role names. The improvement comes from decomposition. The names come from an industry that can't stop mapping human structure onto statistical processes — and from a professional class that needs the mapping to survive.
 
 Scalable.co offers a workshop called "The New AI Org Chart" on how to "onboard, train, and manage your AI employees like real team members." The metaphor doesn't just describe a product. It defends a profession.
 
