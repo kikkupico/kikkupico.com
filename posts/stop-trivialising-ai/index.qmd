@@ -8,6 +8,14 @@ image: "https://storage.googleapis.com/kikkupico-com-storage/stop-trivialising-a
 
 ![The AI Intern Illustrated](https://storage.googleapis.com/kikkupico-com-storage/stop-trivialising-ai/stop-trivialising-ai.webp)
 
+::: {.callout-note title="TL;DR"}
+1. **The metaphors we use for AI aren't neutral** — they reveal our professional insecurities and existential anxieties more than they describe the technology.
+2. **The Patronisation Trap**: Senior engineers call AI a "junior developer" or "intern" to preserve their status in the hierarchy. This creates a false capability ceiling and implies a human growth arc that doesn't exist.
+3. **The Humanisation Trap**: Engineering managers give AI agents human names, org charts, and team structures to prove their people-management skills still matter. The org-chart metaphor becomes the architecture, and the architecture inherits the metaphor's flaws.
+4. **The Mechanisation Trap**: Clean-code advocates and product managers push to strip natural language from AI interactions, treating LLMs like compilers. This discards the core capability of language models — understanding natural language — and replaces developer creativity with spec validation.
+5. **AI is AI**: Language models are a genuinely new category of artefact. The accurate vocabulary — context windows, attention mechanisms, token prediction — is less satisfying precisely because it doesn't position anyone in a reassuring story.
+:::
+
 The software industry built something genuinely new, and then immediately started calling it by the wrong name. Not suprising, because "naming things" is the [second hardest problem](https://martinfowler.com/bliki/TwoHardThings.html) in computer science.
 
 The metaphors we use to describe AI are not neutral shorthand. At best, they're inaccurate. At worst, they reveal more about the insecurities of the people using them than about the capabilities of the systems being described. Pick the wrong framing and you don't just misunderstand the tool — you tell us something about what you're afraid of.
@@ -47,8 +55,6 @@ Marc Benioff at Davos 2025: "From this point forward, we will be managing not on
 The org-chart metaphor has reached the C-suite and it's reshaping hiring decisions. And it's wrong in a precise way.
 
 Calling a language model a "Product Manager Agent" doesn't make it reason like a product manager. It makes *you* design systems that assume product-manager-level judgement. The metaphor becomes the architecture, and the architecture inherits the metaphor's flaws. When you name an agent Mike and give him the "Team Leader" role, you start expecting Mike to exercise leadership — to push back on bad ideas, to synthesise competing concerns, to notice when something doesn't feel right. The model has no such capacity. It has token prediction and a system prompt. The gap between the metaphor and the mechanism is where your production incidents live.
-
-[Takafumi Endo](https://medium.com/@takafumi.endo/agent-native-development-a-deep-dive-into-devin-2-0s-technical-design-3451587d23c0) got at this when correcting Devin's marketing: "The current interaction model feels less like collaborating with a peer and more like managing a highly capable, but ultimately external contractor." Contractors have explicit scopes, defined outputs, and known failure modes. Teammates have implicit shared context, distributed judgement, and social accountability. Devin is the former. Calling it a teammate tells you to use it like the latter — and that's where things go wrong.
 
 The counterargument says multi-agent role names improve benchmark performance. Task decomposition does improve results. But decomposition doesn't require human role names. The improvement comes from decomposition. The names come from an industry that can't stop mapping human structure onto statistical processes — and from a professional class that needs the mapping to survive.
 
