@@ -86,8 +86,6 @@ Strip natural language from prompts and you get compiler-level rigidity without 
 
 The "specs as source of truth" instinct is particularly pernicious. A spec records intent; code records behaviour. When they diverge — and they will — you have two competing records of what the system should do. Treating the spec as authoritative means the model arbitrates between them with token prediction. That's not engineering. That's hoping.
 
-A Hacker News comment captured the mechanisation instinct better than I can: "It's medieval anti-enlightenment black magic. Programming was supposed to be a conquest of reason over the darkness of ignorance. We're back to wizard whispering to spirits."
-
 ## AI Is AI
 
 [Murray Shanahan](https://arxiv.org/abs/2305.16367) at Imperial College London proposed framing LLMs as "role-playing characters" rather than thinking entities — a different kind of wrong, but at least it keeps you from expecting the wrong things. [Melanie Mitchell](https://arxiv.org/abs/2104.12871) at the Santa Fe Institute identified "wishful mnemonics" — terms like "learn," "understand," and "think" that, as she put it, "unconsciously shape the way even AI experts think about their systems." [Gary Marcus](https://garymarcus.substack.com/p/nonsense-on-stilts) identified the "Gullibility Gap." [Kambhampati et al.](https://arxiv.org/abs/2504.09762), in a 2025 arXiv paper: "Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!"
