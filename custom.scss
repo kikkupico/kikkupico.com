@@ -224,3 +224,52 @@ li a:hover, li a:focus,
 blockquote a:hover, blockquote a:focus {
   background-size: 100% 2px;
 }
+
+/* Callouts */
+.callout {
+  border: 1px solid #000000 !important;
+  border-left: 4px solid #000000 !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.callout-header {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.callout-title-container {
+  color: #000000 !important;
+  font-family: 'Space Mono', monospace !important;
+  font-weight: 700 !important;
+}
+
+.callout-body-container {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+.callout-icon-container {
+  color: #000000 !important;
+}
+
+.callout-icon::before {
+  color: #000000 !important;
+}
+
+/* Additional callout icon override to fix blue icon */
+.callout-icon::before {
+  color: #000000 !important;
+  filter: grayscale(100%) !important;
+}
+
+/* Callout Note specific icon color since bootstrap might use specific CSS variables */
+.callout-note .callout-icon::before,
+.callout-note .callout-icon-container {
+  color: #000000 !important;
+}
+
+div.callout-note {
+  border-left-color: #000000 !important;
+}
