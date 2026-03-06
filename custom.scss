@@ -213,3 +213,14 @@ a:hover, a:focus {
   background-size: 100% 2px;
   color: #000000;
 }
+
+/* In-prose links: always-visible 1px underline, thickens on hover */
+p a, li a, blockquote a {
+  background-size: 100% 1px;
+}
+
+p a:hover, p a:focus,
+li a:hover, li a:focus,
+blockquote a:hover, blockquote a:focus {
+  background-size: 100% 2px;
+}

@@ -1,0 +1,108 @@
+---
+title: "Stop trivialising AI: it's not your intern, colleague or compiler"
+author: "kikkupico"
+date: "2026-03-05"
+categories: [ai, software-engineering, opinion]
+---
+
+The software industry built something genuinely new, and then immediately started calling it by the wrong name. Everything that followed was predictable.
+
+["I 'Accept All' always, I don't read the diffs anymore."](https://x.com/karpathy/status/1886192184808149383) That's Andrej Karpathy in February 2025 — former Director of AI at Tesla, OpenAI co-founder, one of the handful of people alive who helped design the systems he just admitted to not reviewing.
+
+The metaphors we use to describe AI are not neutral shorthand. At best, they're inaccurate. At worst, they reveal more about the insecurities of the people using them than about the capabilities of the systems being described. Pick the wrong framing and you don't just misunderstand the tool — you tell us something about what you're afraid of.
+
+Three traps. Each belongs to a different professional tribe. Each performs a different anxiety.
+
+## The Patronisation Trap
+
+Senior engineers who call AI a "junior developer" are rarely making a technical observation. The technical observation would be: AI has specific capability profiles, failure modes, and reliability characteristics. That's precise. Informative. Useful. "Junior developer" tells you none of that.
+
+What "junior developer" tells you is who's in charge. The senior engineer is still the authority. Experience still matters. The system that can produce in seconds what used to take hours is, culturally, still subordinate. The framing does the work that the CV used to do.
+
+The literature is extensive. [DEV Community, September 2025](https://dev.to/ranndy360/ai-coding-best-practices-in-2025-4eel): "Think of AI as a junior developer sitting beside you: it can produce drafts, boilerplate, or even surprisingly solid algorithms, but it lacks the deep context of your project." [A month later, same platform](https://dev.to/elvissautet/2026-ai-users-vs-the-unemployed-3jk4): "It's more like AI is the junior developer who does all the tedious stuff, and you're the senior reviewing and deciding what stays." [Aleksander Stensby](https://ndcmanchester.com/speakers/aleksander-stensby) at NDC Manchester 2025: "You treat these agents like very fast juniors who never get tired and absolutely need oversight." [Ethan Mollick](https://www.oneusefulthing.org/p/on-boarding-your-ai-intern) of Wharton: "You have to think of it like an intern." [Kevin Kelly](https://fortune.com/2023/03/09/kevin-kelly-no-artificial-intelliegence-experts-today-great-time-to-enter-field/) at SXSW 2023: "like having a little assistant to boss around."
+
+[Anthropic's own blog](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) used the phrase "effectively wrangling LLMs." An O'Reilly book on prompt engineering invented the job title "dedicated LLM wranglers." The metaphors of supervision are everywhere.
+
+The pushback runs the other way too — but often just moves the human up the hierarchy. [Neon's engineering blog](https://neon.com/blog/treat-ai-like-a-senior-dev-not-a-junior-one): "Treat AI Like a Senior Dev, Not a Junior One." Senior versus junior: two points on the same wrong axis. The adjustment is revealing. You're not questioning whether "developer" is the right frame at all — you're just upgrading your position relative to the system. Still managing. Still superior. Just generously so.
+
+The intern framing creates a capability ceiling. If you design for incompetence, you get incompetent systems. Every interaction is mediated by the assumption that the output is probably wrong and needs human correction before it can be trusted. Which brings us back to Karpathy. When your model is "it's a junior who needs supervision," you face a binary: either supervise everything — which defeats the efficiency gain — or stop supervising because you've quietly concluded it's probably fine. Vibe coding is the second option, rationalised. It's what happens when the insecurity resolves not into better oversight, but into none.
+
+[GitClear's analysis](https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality) of 211 million lines of code from 2020 to 2024 found refactoring dropped from 25% to under 10% of commits, duplication increased fourfold, and churn nearly doubled. The pattern is consistent with what you'd expect when a supervision model quietly collapses into no supervision at all.
+
+[Andrew Ng](https://www.businessinsider.com/andrew-ng-vibe-coding-unfortunate-term-exhausting-job-2025-6) pushed back on Karpathy directly: "It's unfortunate that that's called vibe coding. Guiding an AI to write useful software is a deeply intellectual exercise." [Simon Willison](https://simonwillison.net/2025/Mar/6/vibe-coding/) drew a useful line: "If an LLM wrote every line of your code, but you've reviewed, tested, and understood it all, that's not vibe coding — that's using an LLM as a typing assistant." By February 2026, Karpathy himself had replaced "vibe coding" with ["agentic engineering."](https://x.com/karpathy/status/2019137879310836075) The metaphor mattered enough to require explicit correction.
+
+Notice what the correction didn't do: it still anthropomorphises. The habit is load-bearing.
+
+The [Alon Torres response](https://alont.substack.com/p/the-stochastic-parrot-fallacy) is worth taking seriously: "Dismissing present-day generative AI as 'just predicting the next token' is like dismissing the human brain as 'just firing neurons.'" True. The problem with the intern framing isn't that it takes the system too seriously — it's that it maps capability onto a human developmental trajectory. Interns grow. Language models don't. The framing implies a growth arc that doesn't exist, and a social contract — patience, mentorship, eventual trust — that misleads you about how the relationship actually works. It also implies that the senior engineer's status is safe, that accumulated judgement and experience remain decisive, that the intern will never become more than an intern. Whether or not that's true is an empirical question. The framing forecloses it.
+
+## The Humanisation Trap
+
+If AI is a junior developer, why not give it a proper team? Why not give it a name, a title, a reporting structure? Why not build the whole org?
+
+This is a trap for a specific professional: the engineering leader. Not the engineer — the manager. The person whose LinkedIn reads "Engineering Director" or "VP of Engineering" or "Head of People and Technology," and whose value proposition was, explicitly, people: hiring, motivating, growing, retaining. The person who made careers from knowing how humans in technical teams behave.
+
+Now the "team" is GPT-4 with different system prompts.
+
+That's [MetaGPT](https://github.com/geekan/MetaGPT/blob/main/README.md) — ICLR 2024, tens of thousands of GitHub stars, launched as "the world's first AI agent development team." Its agents are named Mike (Team Leader), Emma (Product Manager), Bob (Architect), Alex (Engineer), and David (Data Analyst). They're GPT-4 with different system prompts. But they have names. The org chart is preserved. The leadership role — someone has to manage Mike's team — is preserved.
+
+MetaGPT isn't an outlier. [ChatDev](https://github.com/OpenBMB/ChatDev) from OpenBMB: agents hold titles — CEO, CPO, CTO, Programmer, Reviewer. Their documentation states they "form a multi-agent organizational structure." [CrewAI](https://crewai.com/) — the framework with 100,000+ certified developers — describes building "crews of AI agents" that "plan, reason, and collaborate." An American Technology Consulting blog: "You're not writing prompts anymore. You're designing organizations. You're hiring digital employees and managing their performance."
+
+The framing flatters an entire professional class at the moment of its greatest existential pressure. If AI agents need to be managed, coached, onboarded, and given clear roles with defined responsibilities — if the org chart still applies — then the engineering manager's skill set transfers intact. The people skills still matter. Nothing has been lost. The hierarchy is preserved; it's just that some of the staff are now software.
+
+Marc Benioff at Davos 2025: "From this point forward, we will be managing not only human workers but also digital workers." Salesforce then announced no new software engineering hires in 2025. Jensen Huang: "I wouldn't be surprised if you license some and you hire some." Zuckerberg: "Probably in 2025 we're going to have an AI that can effectively be a sort of mid-level engineer." [Cognition's Devin](https://cognition.ai/) launched as a "collaborative AI teammate." Users refer to it with masculine pronouns. Marlon Misra: "I showed him a screenshot on Slack." Goldman Sachs embedded Devin into their 12,000-person engineering team as part of what they called a "hybrid workforce."
+
+The org-chart metaphor has reached the C-suite and it's reshaping hiring decisions. And it's wrong in a precise way.
+
+Calling a language model a "Product Manager Agent" doesn't make it reason like a product manager. It makes *you* design systems that assume product-manager-level judgement. The metaphor becomes the architecture, and the architecture inherits the metaphor's flaws. When you name an agent Mike and give him the "Team Leader" role, you start expecting Mike to exercise leadership — to push back on bad ideas, to synthesise competing concerns, to notice when something doesn't feel right. The model has no such capacity. It has token prediction and a system prompt. The gap between the metaphor and the mechanism is where your production incidents live.
+
+[Takafumi Endo](https://medium.com/@takafumi.endo/agent-native-development-a-deep-dive-into-devin-2-0s-technical-design-3451587d23c0) got at this when correcting Devin's marketing: "The current interaction model feels less like collaborating with a peer and more like managing a highly capable, but ultimately external contractor." Contractors have explicit scopes, defined outputs, and known failure modes. Teammates have implicit shared context, distributed judgement, and social accountability. Devin is the former. Calling it a teammate tells you to use it like the latter — and that's where things go wrong.
+
+The counterargument runs: multi-agent role names improve benchmark performance. Task decomposition does improve results. But decomposition doesn't require human role names. The improvement comes from decomposition. The names come from an industry that can't stop mapping human structure onto statistical processes — and from a professional class that needs the mapping to survive.
+
+Scalable.co offers a workshop called "The New AI Org Chart" on how to "onboard, train, and manage your AI employees like real team members." The metaphor doesn't just describe a product. It defends a profession.
+
+## The Mechanisation Trap
+
+The opposite impulse from humanisation is to strip the metaphor away entirely. No names, no roles, no natural language — just formal specifications, precisely structured, fed to a deterministic processor.
+
+This is a trap for a different kind of thought leader: the person who built their platform on clean code, human-readable systems, and the idea that code is communication. The person whose books and conference talks were premised on the insight that code is written for humans first, machines second.
+
+Robert C. Martin — "Uncle Bob" — spent decades arguing exactly this. [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) is premised on a single idea: code is a medium of communication between programmers, not instructions for machines. Variable names, function length, structure — all of it exists to make human reading easier. The book sold millions. It shaped an entire generation of software engineering culture.
+
+AI does the opposite. It produces code no one asked to read. It generates working, ugly, undocumented, deeply unclean code at scale. In January 2026, Martin [posted on X](https://x.com/unclebobmartin/status/2015766232062951585): "For years I have taught that since we spend more time reading code than writing code it is better to focus on making code readable... Lately, however, the question has been posed to me that the true revolution of AI coding may be the inversion of that principle. Color me skeptical, but willing to listen. Is the secret of hyper productivity really to be found in the effective management of context windows?"
+
+He didn't convert. But "willing to listen" is enough. The person who built a career on *code is communication* couldn't simply dismiss the question. That moment — not a reversal, but an inability to simply say no — is the mechanisation trap in miniature. The fork is uncomfortable: either AI is producing catastrophically unmaintainable systems and the clean code thesis holds, or legibility was never really the point and the thesis was always more about aesthetics than engineering. The mechanisation framing chooses the second path. Readability was only ever for humans. Humans are leaving the loop. Therefore: readability is waste.
+
+[Ken Erwin, on Medium](https://pixelmap.medium.com/the-end-of-human-readable-code-its-time-to-write-for-ai-15a21786c4a2): "The End of Human-Readable Code: It's Time to Write for AI." Proposed prompt: "Please rewrite the following code to be optimally parseable by an LLM while maintaining identical functionality." Davin Hills proposed ALaS — an entirely JSON-based language for machines only: "Let's stop pretending LLMs are human juniors. They don't need prettier errors or nicer formatting — they need a medium they can traverse, reason over, and execute natively." Kyle Anderson on DEV Community, February 2026: "Stop trying to talk to models like they are humans. Talk to them like they are compilers that process natural language."
+
+But the mechanisation trap also has a second constituency, entirely different in motivation: the business side. Product managers. Heads of product. Delivery leads. People who have watched AI hand developers a decade's worth of capability in eighteen months and have been trying to work out what that means for their authority.
+
+Spec-driven development — the practice of writing formal, structured specifications as the "source of truth" that AI translates into code — is their answer. [GitHub frames it](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/) as "moving from 'code is the source of truth' to 'intent is the source of truth.'" [Thoughtworks calls it](https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices) "one of 2025's key new AI-assisted engineering practices." The planning phase: product managers write requirements, developers review and validate them, then the coding agent generates the implementation. The developer's creative and interpretive role — translating ambiguous intent into precise technical decisions — is compressed into a validation step.
+
+The appeal is transparent. If the spec is the source of truth, whoever writes specs controls what gets built. Developers stop being the people who interpret requirements into code — a creative, technical, and often transformative act — and become validators of AI output. At a moment when developers are gaining superpowers, spec-driven development promises to hand the controls back to the people who had them before developers got those superpowers.
+
+[Codecademy, 2025](https://www.codecademy.com/resources/blog/prompt-engineering/): "The more specific you want to be, the more you need simple, structured, unambiguous instructions. Try to make English do that, and you're essentially reinventing programming languages." [Red Hat Developer, February 2026](https://developers.redhat.com/articles/2026/02/17/uncomfortable-truth-about-vibe-coding): "You treat your specifications as the authoritative blueprint — the single source of truth that the code must conform to." The academic world joined in. [Pan et al.](https://arxiv.org/abs/2508.13666) from Monash and SMU published a paper in 2025 arguing code formatting should be stripped for LLMs. They achieved a 24.5% token reduction. They framed readability as waste.
+
+This framing is the most technically sophisticated and the most backwards.
+
+LLMs are *language* models. Their breakthrough capability — the thing that makes them qualitatively different from every prior code-generation tool — is precisely their ability to process natural language. They understand context expressed in prose. They respond to explanation, nuance, analogy, and intent. They improve with richer description. The mechanisation framing treats this as a bug to engineer around rather than the core feature to exploit.
+
+The evidence points the other way. An [Ansible ambiguity study](https://arxiv.org/abs/2507.13290) found that when prompted with stripped, specification-style language, all six tested LLMs chose the same wrong interpretation because the prompt lacked explanatory intent. The fix isn't less language — it's better language.
+
+Strip natural language from prompts and you get compiler-level rigidity without compiler-level determinism. Compilers are deterministic, formally specified, and provably correct within their semantics. A language model stripped of natural language context is none of these things. It's a stochastic system pretending to be a parser. The worst of both worlds.
+
+The "specs as source of truth" instinct is particularly pernicious. A spec records intent; code records behaviour. When they diverge — and they will — you have two competing records of what the system should do. Treating the spec as authoritative means the model arbitrates between them with token prediction. That's not engineering. That's hoping.
+
+A Hacker News comment captured the mechanisation instinct better than I can: "It's medieval anti-enlightenment black magic. Programming was supposed to be a conquest of reason over the darkness of ignorance. We're back to wizard whispering to spirits."
+
+## AI Is AI
+
+[Murray Shanahan](https://arxiv.org/abs/2305.16367) at Imperial College London proposed framing LLMs as "role-playing characters" rather than thinking entities — a different kind of wrong, but at least it keeps you from expecting the wrong things. [Melanie Mitchell](https://arxiv.org/abs/2104.12871) at the Santa Fe Institute identified "wishful mnemonics" — terms like "learn," "understand," and "think" that, as she put it, "unconsciously shape the way even AI experts think about their systems." [Gary Marcus](https://garymarcus.substack.com/p/nonsense-on-stilts) identified the "Gullibility Gap." [Kambhampati et al.](https://arxiv.org/abs/2504.09762), in a 2025 arXiv paper: "Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!"
+
+The right vocabulary comes from what these systems actually do. Context window, not memory or experience. Attention mechanisms that weight tokens relative to each other, not judgement or prioritisation. Token prediction over learnt distributions, not writing or deciding. Emergent capabilities at scale, not growth or learning in real time.
+
+These concepts are less satisfying than "teammate" or "intern" or "compiler" because they don't map onto anything in our prior experience. That's the point. A language model is a genuinely new category of artefact. "AI is AI" is the accurate answer.
+
+It's also, admittedly, a boring one.
+
+It's boring because it doesn't position anyone. It doesn't protect the senior engineer's accumulated expertise, or give the engineering manager a team to lead, or return the product manager's authority over what gets built. It doesn't make careers or generate conference talks. It doesn't tell you what role you play in the story. It just describes a system accurately, and leaves you to work out what that means.
