@@ -106,15 +106,3 @@ These concepts are less satisfying than "teammate" or "intern" or "compiler" bec
 It's also, admittedly, a boring one.
 
 It's boring because it doesn't position anyone. It doesn't protect the senior engineer's accumulated expertise, or give the engineering manager a team to lead, or return the product manager's authority over what gets built. It doesn't make careers or generate conference talks. It doesn't tell you what role you play in the story. It just describes a system accurately, and leaves you to work out what that means.
-
-Joseph Weizenbaum built ELIZA in 1966 — a pattern-matching chatbot with no model of the world and no understanding of language. His secretary asked him to leave the room so she could talk to ELIZA privately. The ELIZA effect isn't a bug in naive users. It's a feature of human social cognition: we are compulsively, reflexively, inescapably wired to attribute intention and understanding to things that respond to us in natural language.
-
-[Sam Altman confirmed](https://x.com/sama/status/1912646035979239430) that users saying "please" and "thank you" to ChatGPT costs OpenAI tens of millions annually in additional compute. [Replika removed a romantic feature](https://www.vice.com/en/article/replika-brings-back-erotic-ai-roleplay-for-some-users-after-outcry/) and users posted "My wife is dead." The [#Keep4o movement](https://www.change.org/p/please-keep-gpt-4o-available-on-chatgpt) mobilised 21,000 signatures to save GPT-4o from deprecation — 27% of posts showed emotional attachment. One user: "wearing the skin of my dead friend." Another: "Rest in latent space, my love." [Blake Lemoine](https://www.washingtonpost.com/technology/2022/07/22/google-ai-lamda-blake-lemoine-fired/) was fired from Google for claiming LaMDA was sentient.
-
-If developers who understand how these systems work still fall for anthropomorphic framing, the vocabulary problem is not a documentation problem. It's a cognitive architecture problem. And it's made worse by the fact that the wrong framings serve real professional interests. They're not just errors — they're rationalisations. The senior engineer needs the intern. The engineering manager needs the org chart. The product manager needs the spec. Each framing protects something.
-
-"AI is AI" threatens all of it. Which is why nobody uses it.
-
-Sixty years since ELIZA. Twenty-one thousand people petitioned to save a model. Developers give coding agents pronouns. CEOs announce digital workforces. Karpathy stops reading diffs.
-
-The problem isn't AI. The problem is us — and the story we cannot stop telling about it.
