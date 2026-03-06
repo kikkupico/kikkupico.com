@@ -6,6 +6,8 @@ categories: [ai, software-engineering, opinion]
 image: "https://storage.googleapis.com/kikkupico-com-storage/stop-trivialising-ai/stop-trivialising-ai.webp"
 ---
 
+![The AI Intern Illustrated](https://storage.googleapis.com/kikkupico-com-storage/stop-trivialising-ai/stop-trivialising-ai.webp)
+
 The software industry built something genuinely new, and then immediately started calling it by the wrong name. Not suprising, because "naming things" is the [second hardest problem](https://martinfowler.com/bliki/TwoHardThings.html) in computer science.
 
 The metaphors we use to describe AI are not neutral shorthand. At best, they're inaccurate. At worst, they reveal more about the insecurities of the people using them than about the capabilities of the systems being described. Pick the wrong framing and you don't just misunderstand the tool — you tell us something about what you're afraid of.
