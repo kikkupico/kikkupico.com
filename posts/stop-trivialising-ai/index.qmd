@@ -3,10 +3,7 @@ title: "Stop trivialising AI: it's not your intern, colleague or compiler"
 author: "kikkupico"
 date: "2026-03-05"
 categories: [ai, software-engineering, opinion]
-image: "https://storage.googleapis.com/kikkupico-com-storage/stop-trivialising-ai/stop-trivialising-ai.webp"
 ---
-
-![The AI Intern Illustrated](https://storage.googleapis.com/kikkupico-com-storage/stop-trivialising-ai/stop-trivialising-ai.webp)
 
 ::: {.callout-note title="TL;DR"}
 1. **The metaphors we use for AI aren't neutral** — they reveal our professional insecurities and existential anxieties more than they describe the technology.

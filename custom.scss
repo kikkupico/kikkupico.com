@@ -1,275 +1,417 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 /*-- scss:defaults --*/
 
-/* SCSS Variables Overrides */
-$body-bg: #ffffff;
-$body-color: #000000;
-$link-color: #000000;
+// Purely typographic theme: one serif family, one mono for code,
+// ink on paper, no colour, no ornament.
+
+$ink:   #1b1b1b;
+$muted: #6f6f6f;
+$rule:  #e4e2dc;
+$paper: #fdfcf9;
+
+$web-font-path: "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap";
+
+$font-family-sans-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+$font-family-monospace: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 500;
+$headings-color: $ink;
+
+$font-size-root: 20px;
+$font-size-base: 1rem;
+$line-height-base: 1.65;
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $ink;
+$link-hover-color: $ink;
 $link-decoration: none;
-$link-hover-color: #000000;
-$link-hover-decoration: none;
 
-/* Using serif as base/body font per requirements */
-$font-family-sans-serif: 'Lora', serif;
-$font-family-monospace: 'Space Mono', monospace;
-$headings-font-family: 'Space Mono', monospace;
+$primary: $ink;
+$secondary: $muted;
+$info: $ink;
+$success: $ink;
+$warning: $ink;
+$danger: $ink;
+$light: $paper;
+$dark: $ink;
+$border-color: $rule;
 
-/* Bootstrap/Quarto Theme Overrides to remove colors */
-$primary: #000000;
-$secondary: #000000;
-$success: #000000;
-$info: #000000;
-$warning: #000000;
-$danger: #000000;
-$light: #ffffff;
-$dark: #000000;
+$navbar-bg: $paper;
+$navbar-fg: $ink;
+$navbar-hl: $ink;
 
-$border-color: #000000;
-$input-border-color: #000000;
+$code-color: $ink;
+$code-bg: transparent;
+$code-block-bg: transparent;
+$code-block-border-left: $rule;
+
+$callout-color-note: $ink;
+$callout-color-tip: $ink;
+$callout-color-warning: $ink;
+$callout-color-important: $ink;
+$callout-color-caution: $ink;
 
 /*-- scss:rules --*/
 
-/* Custom CSS */
 body {
-  background-color: #ffffff;
-  color: #000000;
+  font-optical-sizing: auto;
+  font-feature-settings: "kern", "liga", "onum";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Space Mono', monospace;
-  color: #000000;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
+// ---------- Navbar ----------
 
-/* Navbar */
 .navbar {
-  background-color: #ffffff !important;
+  background: $paper !important;
+  border: 0;
+  box-shadow: none;
+  padding-top: 2.5rem;
+  padding-bottom: 0;
 }
 
-.navbar-brand {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-  color: #000000 !important;
+.navbar-brand,
+.navbar-title {
+  font-family: $font-family-sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  color: $ink !important;
 }
 
-.nav-link {
-  color: #000000 !important;
-  font-family: 'Space Mono', monospace;
+.navbar .nav-link,
+.navbar .menu-text {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  font-size: 1rem;
+  color: $muted !important;
+  padding-left: 0.6rem !important;
+  padding-right: 0.6rem !important;
 }
 
-/* Listing / Blog Posts */
-.quarto-listing {
-  color: #000000;
+.navbar .nav-link:hover .menu-text,
+.navbar .nav-link:hover,
+.navbar .nav-link.active,
+.navbar .nav-link.active .menu-text {
+  color: $ink !important;
 }
 
-.listing-title {
-  color: #000000 !important;
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
+.navbar .navbar-toggler {
+  border: 0;
+  box-shadow: none;
 }
 
-.listing-title a {
-  font-weight: inherit;
-  color: inherit;
+// ---------- Headings ----------
+
+h1, h2, h3, h4, h5, h6 {
+  color: $ink;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  border: 0 !important;
 }
 
-.listing-author, .listing-date, .listing-categories .listing-category {
-  color: #000000 !important;
-  border-color: #000000 !important;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.9em;
+h2 {
+  font-size: 1.45rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
 }
 
-.listing-categories {
-  margin-top: 0.5rem;
+h3 {
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 2.25rem;
 }
 
-/* Sidebar Categories */
-.quarto-listing-category-title {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 0.9em !important;
-  color: #000000 !important;
-  margin-bottom: 0.5rem;
+h4, h5, h6 {
+  font-size: 1rem;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-top: 2rem;
 }
 
-.quarto-listing-category .category {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 0.9em !important;
-  color: #000000 !important;
+// ---------- Post title block ----------
+
+#title-block-header {
+  margin-top: 3.5rem;
+  margin-bottom: 3rem;
 }
 
-/* Metadata in posts */
-.quarto-title-banner {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-}
-
-.quarto-title-banner .quarto-title {
-  color: #000000 !important;
-  text-shadow: none !important;
-}
-
-/* Ensure specific title block headers are black */
-#title-block-header,
-#title-block-header .quarto-title-banner,
-#title-block-header .quarto-title,
 #title-block-header .title,
-.quarto-title-block .title,
-h1.title,
-.quarto-title-banner .title,
-.quarto-title-banner h1,
-.quarto-title-banner .quarto-title h1.title {
-  color: #000000 !important;
-  opacity: 1 !important;
-  text-shadow: none !important;
-  font-family: 'Space Mono', monospace !important;
-  font-weight: 700 !important;
-  background-color: transparent !important;
-  -webkit-text-fill-color: #000000 !important;
+h1.title {
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.25rem;
 }
 
-.quarto-category {
-  color: #000000 !important;
-  border: 1px solid #000000 !important;
-  background-color: #ffffff !important;
-  text-transform: uppercase;
-  font-weight: normal !important;
-  opacity: 1 !important;
+#title-block-header .quarto-title-meta {
+  display: flex !important;
+  grid-template-columns: none !important;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin-top: 0;
 }
 
 .quarto-title-meta-heading {
-  color: #000000 !important;
-  font-family: 'Space Mono', monospace;
-  text-transform: uppercase;
+  display: none;
 }
 
-.quarto-title-meta-contents {
-  color: #000000 !important;
-  font-family: 'Lora', serif;
+.quarto-title-meta-contents,
+.quarto-title-meta-contents p {
+  color: $muted;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0;
 }
 
-/* Buttons */
-.btn {
-  border-radius: 0;
-  border: 1px solid #000000;
-  color: #000000;
-  background-color: #ffffff;
+.quarto-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.9rem;
+  margin-top: 0.4rem;
 }
 
-.btn:hover {
-  background-color: #000000;
-  color: #ffffff;
+.quarto-category {
+  border: 0 !important;
+  background: none !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  color: $muted !important;
+  font-family: $font-family-sans-serif;
+  font-size: 1rem !important;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  text-transform: none;
 }
 
-/* Code blocks */
-pre, code {
-  color: #000000;
-  background-color: #ffffff;
-  border: 1px solid #000000;
+// ---------- Body text ----------
+
+p, li {
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
-/* Minimalist spacing */
 p {
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
-img {
-
+strong, b {
+  font-weight: 600;
 }
 
-/* Remove default gray backgrounds from bootstrap elements */
-.bg-light {
-  background-color: #ffffff !important;
+blockquote,
+.blockquote {
+  border-left: 1px solid $rule;
+  padding: 0 0 0 1.25rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  font-size: 1rem;
+  color: $ink;
 }
 
-.text-muted {
-  color: #000000 !important;
+hr {
+  border: 0;
+  height: auto;
+  opacity: 1;
+  margin: 3rem 0;
+  text-align: center;
+  &::after {
+    content: "* * *";
+    letter-spacing: 0.6em;
+    color: $muted;
+  }
 }
 
-/* Remove line separator between listing items */
-.quarto-post {
-    border-bottom: none !important;
-    margin-bottom: 3rem !important; /* Added for visual separation */
-}
-
-/* Links in body */
+// Links: thin underline, drawn with text-decoration for proper descender handling
 a {
-  color: #000000;
+  color: $ink;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba($ink, 0.35);
+  transition: text-decoration-color 0.2s ease;
+  &:hover,
+  &:focus {
+    color: $ink;
+    text-decoration-color: $ink;
+  }
+}
+
+.navbar a,
+.post-list a,
+.quarto-category,
+a.anchorjs-link,
+.sidebar a {
   text-decoration: none;
-  background-image: linear-gradient(#000000, #000000);
-  background-position: 0% 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-  transition: background-size 0.3s;
 }
 
-a:hover, a:focus {
-  background-size: 100% 2px;
-  color: #000000;
+// ---------- Figures & tables (images stay, but quiet) ----------
+
+figure, .figure, .quarto-figure {
+  margin: 2.25rem 0;
 }
 
-/* In-prose links: always-visible 1px underline, thickens on hover */
-p a, li a, blockquote a {
-  background-size: 100% 1px;
+figcaption, .figure-caption {
+  color: $muted;
+  font-style: italic;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.6rem;
 }
 
-p a:hover, p a:focus,
-li a:hover, li a:focus,
-blockquote a:hover, blockquote a:focus {
-  background-size: 100% 2px;
+table {
+  font-size: 0.9rem;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
-/* Callouts */
-.callout {
-  border: 1px solid #000000 !important;
-  border-left: 4px solid #000000 !important;
-  background-color: #ffffff !important;
-  color: #000000 !important;
+.table > :not(caption) > * > * {
+  background: transparent;
+  border-bottom-color: $rule;
 }
 
-.callout-header {
-  background-color: #ffffff !important;
-  border-bottom: 1px solid #000000 !important;
-  color: #000000 !important;
+.table > thead {
+  border-bottom: 1px solid $ink;
 }
 
-.callout-title-container {
-  color: #000000 !important;
-  font-family: 'Space Mono', monospace !important;
-  font-weight: 700 !important;
+.table th {
+  font-weight: 600;
 }
 
-.callout-body-container {
-  color: #000000 !important;
-  background-color: #ffffff !important;
+// ---------- Code ----------
+
+code {
+  font-size: 0.82em;
+  color: $ink;
+  background: none;
+  padding: 0;
 }
 
-.callout-icon-container {
-  color: #000000 !important;
+pre,
+div.sourceCode {
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 1px solid $rule !important;
+  border-radius: 0 !important;
+  padding: 0.25rem 0 0.25rem 1.25rem !important;
+  margin: 1.75rem 0 !important;
 }
 
-.callout-icon::before {
-  color: #000000 !important;
+pre code,
+div.sourceCode pre {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0.8rem;
+  line-height: 1.6;
 }
 
-/* Additional callout icon override to fix blue icon */
-.callout-icon::before {
-  color: #000000 !important;
-  filter: grayscale(100%) !important;
+// ---------- Callouts (e.g. TL;DR) ----------
+
+div.callout {
+  margin-left: 0 !important;
+  border: 0 !important;
+  border-left: 1px solid $ink !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 0 0 1.25rem;
+  margin: 2rem 0 2.5rem;
 }
 
-/* Callout Note specific icon color since bootstrap might use specific CSS variables */
-.callout-note .callout-icon::before,
-.callout-note .callout-icon-container {
-  color: #000000 !important;
+div.callout .callout-header {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 0.4rem;
 }
 
-div.callout-note {
-  border-left-color: #000000 !important;
+div.callout .callout-icon-container {
+  display: none;
+}
+
+div.callout .callout-title-container {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 1rem;
+  color: $ink;
+}
+
+div.callout .callout-body-container {
+  background: transparent !important;
+  padding: 0 !important;
+  font-size: 0.95rem;
+  ol, ul { padding-left: 1.2rem; margin-bottom: 0; }
+  li { margin-bottom: 0.5rem; }
+}
+
+// ---------- Home: post list ----------
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.post-list li {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  column-gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid $rule;
+  &:first-child { border-top: 1px solid $rule; }
+}
+
+.post-list .post-date {
+  color: $muted;
+  font-size: 0.85rem;
+  font-variant-numeric: oldstyle-nums tabular-nums;
+  white-space: nowrap;
+}
+
+.post-list .post-title {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: $ink;
+  transition: color 0.15s ease;
+}
+
+.post-list a:hover .post-title {
+  color: $muted;
+}
+
+@media (max-width: 575.98px) {
+  :root { font-size: 18px; }
+  .navbar { padding-top: 1.5rem; }
+  .navbar .navbar-nav { flex-direction: row; }
+  .navbar .nav-link { padding-left: 0.35rem !important; padding-right: 0.35rem !important; }
+  .navbar .menu-text { font-size: 0.9rem; letter-spacing: 0.05em; }
+  .navbar-brand-container { max-width: none !important; flex-shrink: 0; }
+  .navbar-title { overflow: visible !important; text-overflow: clip !important; }
+  .post-list li {
+    grid-template-columns: 1fr;
+    row-gap: 0.15rem;
+  }
+  #title-block-header .title,
+  h1.title { font-size: 1.85rem; }
+}
+
+// ---------- Footer / misc ----------
+
+.nav-footer {
+  border-top: 0;
+  color: $muted;
+  font-size: 0.85rem;
+}
+
+.quarto-listing-category,
+.quarto-listing-category-title {
+  display: none;
 }

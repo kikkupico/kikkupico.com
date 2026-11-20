@@ -3,11 +3,10 @@ listing:
   contents: posts
   feed: true
   sort: "date desc"
-  type: default
-  categories: true
+  template: posts.ejs
+  date-format: "D MMM YYYY"
+  categories: false
   sort-ui: false
   filter-ui: false
-page-layout: full
+page-layout: article
 ---
-
-

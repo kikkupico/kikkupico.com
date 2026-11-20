@@ -10,21 +10,21 @@ website:
   title: "kikkupico"
   search: false
   navbar:
+    collapse: false
     right:
-      - icon: question-circle
-        text: " "
+      - text: About
         href: about.qmd
-        aria-label: About
-
-      - icon: github
+      - text: GitHub
         href: https://github.com/kikkupico
-      - icon: linkedin
+      - text: LinkedIn
         href: https://www.linkedin.com/in/ramakrishnan-veeraragavan-725797205/
 format:
   html:
     theme:
-      - cosmo
+      - default
       - custom.scss
+    title-block-banner: false
+    anchor-sections: false
     include-in-header:
       - text: |
           <link rel="icon" href="/favicon/favicon.ico" sizes="any">

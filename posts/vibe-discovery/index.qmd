@@ -3,7 +3,6 @@ title: "Vibe Discovery: I Built a Mobile Game on an Old Phone Without Knowing Wh
 author: "kikkupico"
 date: "2026-01-11"
 categories: [ai, product-development, gamedev, webgl]
-image: "https://storage.googleapis.com/kikkupico-com-storage/vibe-discovery/hero.webp"
 ---
 
 ## The Starting Point

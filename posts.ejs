@@ -1,0 +1,8 @@
+<ul class="post-list list">
+<% for (const item of items) { %>
+  <li <%= metadataAttrs(item) %>>
+    <time class="post-date listing-date"><%= item.date %></time>
+    <a href="<%- item.path %>"><span class="post-title listing-title"><%= item.title %></span></a>
+  </li>
+<% } %>
+</ul>
